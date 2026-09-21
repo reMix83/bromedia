@@ -171,6 +171,30 @@ function renderAbout() {
     </div>`;
 }
 
+/* --- ГЛАВНАЯ: как мы работаем --- */
+function renderProcess() {
+  const mount = $("[data-process]");
+  if (!mount) return;
+  mount.innerHTML = `
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Как мы работаем</span>
+        <h2>Пять этапов — от заявки до готового видео</h2>
+        <p>Прозрачный процесс: вы всегда знаете, на каком шаге проект и что будет дальше.</p>
+      </div>
+      <div class="process-list">
+        ${SITE.process.map((p, i) => `
+          <div class="process-item reveal" style="transition-delay:${i * 70}ms">
+            <div class="process-num">${esc(p.step)}</div>
+            <div class="process-body">
+              <h3>${esc(p.title)}</h3>
+              <p>${esc(p.text)}</p>
+            </div>
+          </div>`).join("")}
+      </div>
+    </div>`;
+}
+
 /* --- УСЛУГИ --- */
 function renderServices() {
   const mount = $("[data-services]");
@@ -435,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderHero();
   renderAbout();
+  renderProcess();
   renderServices();
   renderClients();
   renderPortfolioPreview();

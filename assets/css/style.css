@@ -391,6 +391,51 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 
+/* ---------- «Как мы работаем» ---------- */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 46px;
+}
+.process-item {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  padding: 28px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color .35s var(--ease), transform .35s var(--ease);
+}
+.process-item:hover {
+  border-color: var(--neon);
+  transform: translateX(6px);
+}
+.process-num {
+  flex: none;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--neon);
+  text-shadow: 0 0 22px var(--neon-glow);
+  min-width: 58px;
+}
+.process-body h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.process-body p {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin: 0;
+}
+@media (max-width: 780px) {
+  .process-item { gap: 18px; padding: 22px; }
+  .process-num { font-size: 24px; min-width: 44px; }
+}
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
