@@ -127,33 +127,28 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
 }
-/* ---------- ФОН-ЗАГЛУШКА (мелкая сетка + дрейф) ----------
-   на внутренних страницах — только вверху, высотой в экран (как в шапке главной) */
+/* ---------- ФОН-ЗАГЛУШКА (очень мелкая, еле заметная сетка) ---------- */
 .bg-grid {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(115deg, #0a1414 0%, #0e2020 45%, #0a1a1a 100%);
+  background: linear-gradient(115deg, #0a1414 0%, #0c1a1a 50%, #0a1414 100%);
 }
 .bg-grid::after {
   content: "";
   position: absolute;
-  inset: -80px;
+  inset: -100px;
   background-image:
-    repeating-linear-gradient(0deg,  rgba(46,232,208,.035) 0 1px, transparent 1px 6px),
-    repeating-linear-gradient(90deg, rgba(46,232,208,.025) 0 1px, transparent 1px 6px);
-  animation: gridDrift 28s linear infinite, gridPulse 7s ease-in-out infinite;
+    repeating-linear-gradient(0deg,  rgba(46,232,208,.018) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(90deg, rgba(46,232,208,.012) 0 1px, transparent 1px 9px);
+  animation: gridDrift 40s linear infinite;
 }
 @keyframes gridDrift {
-  to { background-position: 72px 72px, 72px 72px; }
-}
-@keyframes gridPulse {
-  0%, 100% { opacity: .55; }
-  50%      { opacity: .85; }
+  to { background-position: 108px 108px, 108px 108px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .bg-grid::after { animation: gridPulse 8s ease-in-out infinite; }
+  .bg-grid::after { animation: none; }
 }
 
 /* на внутренних страницах сетка висит только вверху — высотой в экран */
