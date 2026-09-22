@@ -15,8 +15,8 @@ const SITE = {
     years: "5",                        // ← сколько лет на рынке
     // ↓ видео для шапки главной. Положи файл в assets/img/ и напиши путь.
     //   Пока пусто — покажется неоновая анимированная заглушка.
-    heroVideo: "",                     // пример: "assets/img/showreel.mp4"
-    heroPoster: "",                    // пример: "assets/img/showreel.jpg"
+    heroVideo: "assets/video/Shapka.mp4",   // видео в шапке главной
+    heroPoster: "assets/img/og-preview.jpg",
   },
 
   /* ---------- Текст на главной ---------- */

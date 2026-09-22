@@ -127,7 +127,7 @@ function renderHero() {
     ? `<video class="hero-video" autoplay muted loop playsinline ${s.heroPoster ? `poster="${esc(s.heroPoster)}"` : ""}>
          <source src="${esc(s.heroVideo)}" type="video/mp4">
        </video>`
-    : `<div class="hero-video-fallback"></div>`;
+    : `<div class="bg-grid hero-bg"></div>`;
 
   mount.innerHTML = `
     ${media}
@@ -458,34 +458,15 @@ function renderContacts() {
     </div>`;
 }
 
-/* --- сетка-заглушка на всех страницах, кроме главной --- */
-function gridSVG(id) {
-  return `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <defs>
-      <pattern id="${id}" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
-        <path d="M 2.4 0 L 0 0 0 2.4" fill="none" stroke="currentColor" stroke-width="0.045"/>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#${id})"/>
-    <defs>
-      <radialGradient id="${id}fade" cx="50%" cy="40%" r="75%">
-        <stop offset="0%"   stop-color="#000" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#000" stop-opacity="1"/>
-      </radialGradient>
-    </defs>
-    <rect width="100%" height="100%" fill="#000" style="mix-blend-mode:multiply" mask="" opacity="0"/>
-  </svg>`;
-}
-
+/* --- фон-заглушка на всех страницах, кроме главной (там — видео) --- */
 function initGridBackdrop() {
-  if (isHomePage()) return;
-  if ($(".grid-backdrop")) return;
+  if (isHomePage()) return;          // на главной фон рисует hero
+  if ($(".bg-grid")) return;
 
   const d = document.createElement("div");
-  d.className = "grid-backdrop";
+  d.className = "bg-grid";
   d.setAttribute("aria-hidden", "true");
-  d.innerHTML = gridSVG("bmGridPage");
-  document.body.appendChild(d);
+  document.body.insertBefore(d, document.body.firstChild);
 }
 
 /* ---------- запуск ---------- */
