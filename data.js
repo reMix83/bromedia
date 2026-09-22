@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "1.8";   /* версия сборки — для сброса кэша */
+const BUILD = "2.0";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -57,7 +57,7 @@ const SITE = {
      Когда будут готовы логотипы компаний, добавь их так:
      { name: "Название", logo: "assets/img/clients/name.png" }
      Пока стоит placeholder: { name: "", logo: "" }                     */
-    clients: [
+      clients: [
     { name: "Газпром поляна", logo: "assets/img/clients/gazprom.png" },
     { name: "Сбер Университет", logo: "assets/img/clients/sber.png" },
     { name: "Яндекс Такси", logo: "assets/img/clients/yandex.png" },
@@ -73,6 +73,39 @@ const SITE = {
     { name: "IZ", logo: "assets/img/clients/iz.png" },
     { name: "360", logo: "assets/img/clients/360.png" },
     { name: "78", logo: "assets/img/clients/78.png" },
+    { name: "Asna", logo: "assets/img/clients/asna.png" },
+    { name: "Biosensor", logo: "assets/img/clients/biosensor.png" },
+    { name: "Davinche", logo: "assets/img/clients/davinche.png" },
+    { name: "Farm", logo: "assets/img/clients/farm.png" },
+    { name: "Idol", logo: "assets/img/clients/idol.png" },
+    { name: "Chenglong", logo: "assets/img/clients/chenglong.png" },
+    { name: "Cp", logo: "assets/img/clients/cp.png" },
+    { name: "Nuovita", logo: "assets/img/clients/nuovita.png" },
+    { name: "Invesper", logo: "assets/img/clients/invesper.png" },
+    { name: "Pechat", logo: "assets/img/clients/pechat.png" },
+    { name: "Accordtec", logo: "assets/img/clients/accordtec.png" },
+    { name: "Etec", logo: "assets/img/clients/etec.png" },
+    { name: "Izlk", logo: "assets/img/clients/izlk.png" },
+    { name: "Tm", logo: "assets/img/clients/tm.png" },
+    { name: "Narhozstroy", logo: "assets/img/clients/Narhozstroy.png" },
+    { name: "Caleo", logo: "assets/img/clients/caleo.png" },
+    { name: "Ceresit", logo: "assets/img/clients/ceresit.png" },
+    { name: "Konsole", logo: "assets/img/clients/konsole.png" },
+    { name: "Lvk", logo: "assets/img/clients/LVK.png" },
+    { name: "Ncl", logo: "assets/img/clients/NCL.png" },
+    { name: "Fg", logo: "assets/img/clients/FG.png" },
+    { name: "Finex", logo: "assets/img/clients/finEx.png" },
+    { name: "Rmp", logo: "assets/img/clients/RMP.png" },
+    { name: "Fabrik", logo: "assets/img/clients/fabrik.png" },
+    { name: "Kraspan", logo: "assets/img/clients/kraspan.png" },
+    { name: "Jzuza", logo: "assets/img/clients/jzuza.png" },
+    { name: "Night", logo: "assets/img/clients/night.png" },
+    { name: "Prez", logo: "assets/img/clients/prez.png" },
+    { name: "R5studio", logo: "assets/img/clients/R5Studio.png" },
+    { name: "Svid", logo: "assets/img/clients/svid.png" },
+    { name: "Ddsos", logo: "assets/img/clients/ddsos.png" },
+    { name: "Save", logo: "assets/img/clients/save.png" },
+    { name: "Soedinenie", logo: "assets/img/clients/soedinenie.png" },
   ],
 
   /* ---------- Услуги (направления) ---------- */
