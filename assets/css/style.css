@@ -588,5 +588,30 @@ body > .grid-backdrop {
 
 
 @media (max-width: 900px) { .clients { grid-template-columns: repeat(3, minmax(0,1fr)); } }
-@media (max-width: 600px) { .clients { grid-template-columns: repeat(2, minmax(0,1fr)); } .client-slot { height: 56px; padding:6px; } .client-slot img.client-logo { max-height: 22px; } }
-@media (max-width: 420px) { .clients { grid-template-columns: repeat(1, minmax(0,1fr)); } .client-slot { height: 44px; padding:4px; } .client-slot img.client-logo { max-height: 18px; } }
+
+/* MOBILE: horizontal scroller for long client lists to save vertical space */
+@media (max-width: 600px) {
+  .clients {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding: 8px 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .clients::-webkit-scrollbar { display: none; }
+  .client-slot {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 64px;
+    padding: 8px;
+    scroll-snap-align: center;
+  }
+  .client-slot img.client-logo { max-height: 30px; }
+}
+
+@media (max-width: 420px) {
+  .client-slot { width: 100px; height: 56px; padding: 6px; }
+  .client-slot img.client-logo { max-height: 26px; }
+}
