@@ -436,28 +436,36 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   .process-num { font-size: 24px; min-width: 44px; }
 }
 
-/* ---------- сетка-заглушка с мерцанием ---------- */
+/* ---------- сетка-заглушка: мелкая, мерцает ---------- */
 .grid-backdrop {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   color: var(--neon);
-  opacity: .05;
-  animation: gridFlicker 4.5s ease-in-out infinite;
+  animation: gridFlicker 5s ease-in-out infinite;
 }
 .grid-backdrop svg { width: 100%; height: 100%; display: block; }
 
+/* страницы, где сетка лежит фоном всей страницы */
+body > .grid-backdrop {
+  position: fixed;
+}
+/* на главной сетка — внутри шапки */
+.hero .grid-backdrop { position: absolute; }
+
 @keyframes gridFlicker {
-  0%   { opacity: .04; }
-  30%  { opacity: .075; }
-  55%  { opacity: .045; }
-  80%  { opacity: .085; }
-  100% { opacity: .04; }
+  0%   { opacity: .05; }
+  15%  { opacity: .10; }
+  30%  { opacity: .055; }
+  45%  { opacity: .115; }
+  60%  { opacity: .05; }
+  75%  { opacity: .095; }
+  100% { opacity: .05; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grid-backdrop { animation: none; opacity: .05; }
+  .grid-backdrop { animation: none; opacity: .06; }
 }
 
 /* ---------- адаптив ---------- */

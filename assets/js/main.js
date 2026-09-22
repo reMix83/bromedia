@@ -459,21 +459,32 @@ function renderContacts() {
 }
 
 /* --- сетка-заглушка на всех страницах, кроме главной --- */
+function gridSVG(id) {
+  return `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <pattern id="${id}" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
+        <path d="M 2.4 0 L 0 0 0 2.4" fill="none" stroke="currentColor" stroke-width="0.045"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#${id})"/>
+    <defs>
+      <radialGradient id="${id}fade" cx="50%" cy="40%" r="75%">
+        <stop offset="0%"   stop-color="#000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000" stop-opacity="1"/>
+      </radialGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="#000" style="mix-blend-mode:multiply" mask="" opacity="0"/>
+  </svg>`;
+}
+
 function initGridBackdrop() {
-  if (isHomePage()) return;            // на главной — видео, сетка не нужна
-  if ($(".grid-backdrop")) return;     // не дублируем
+  if (isHomePage()) return;
+  if ($(".grid-backdrop")) return;
 
   const d = document.createElement("div");
   d.className = "grid-backdrop";
   d.setAttribute("aria-hidden", "true");
-  d.innerHTML = `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <pattern id="bmGrid" width="64" height="64" patternUnits="userSpaceOnUse">
-        <path d="M 64 0 L 0 0 0 64" fill="none" stroke="currentColor" stroke-width="1"/>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#bmGrid)"/>
-  </svg>`;
+  d.innerHTML = gridSVG("bmGridPage");
   document.body.appendChild(d);
 }
 
