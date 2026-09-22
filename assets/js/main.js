@@ -17,6 +17,8 @@ const ICONS = {
   rutube: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>',
   dzen: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-.4 5.3-2.7 7.6-8 8v.1c5.3.4 7.6 2.7 8 8h.1c.4-5.3 2.7-7.6 8-8v-.1c-5.3-.4-7.6-2.7-8-8H12z"/></svg>',
   email: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>',
+  arrowLeft:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+  arrowRight: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
 };
 
 /* ---------- вспомогательное ---------- */
@@ -246,9 +248,13 @@ function renderClients() {
             ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
             : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
         </div>
-        <div class="clients-nav" aria-hidden="false">
-          <button type="button" data-clients-prev aria-label="Предыдущие логотипы">${ICONS.arrowLeft}</button>
-          <button type="button" data-clients-next aria-label="Следующие логотипы">${ICONS.arrowRight}</button>
+        <div class="clients-nav">
+          <button type="button" data-clients-prev aria-label="Предыдущие логотипы">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" data-clients-next aria-label="Следующие логотипы">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </div>`;
@@ -262,19 +268,33 @@ function initClientsNav() {
   const next  = $("[data-clients-next]");
   if (!track || !prev || !next) return;
 
-  const step = () => Math.max(track.clientWidth * 0.9, 100);
-
-  const sync = () => {
-    const max = track.scrollWidth - track.clientWidth - 2;
-    prev.disabled = track.scrollLeft <= 2;
-    next.disabled = track.scrollLeft >= max;
+  /* шаг = ширина одной карточки + gap (т.е. сдвиг на колонку) */
+  const step = () => {
+    const slot = track.querySelector(".client-slot");
+    if (!slot) return track.clientWidth * 0.8;
+    const gap = parseFloat(getComputedStyle(track).gap) || 8;
+    return (slot.getBoundingClientRect().width + gap) * 2;  /* 2 колонки разом */
   };
 
-  prev.addEventListener("click", () => { track.scrollBy({ left: -step(), behavior: "smooth" }); });
-  next.addEventListener("click", () => { track.scrollBy({ left:  step(), behavior: "smooth" }); });
+  const sync = () => {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= maxScroll - 2;
+    /* если листать нечего — прячем кнопки совсем */
+    const nothingToScroll = maxScroll <= 2;
+    const nav = $(".clients-nav");
+    if (nav) nav.style.display = nothingToScroll ? "none" : "";
+  };
+
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left:  step(), behavior: "smooth" }));
   track.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync, { passive: true });
+
+  /* первый расчёт — после отрисовки картинок */
   sync();
+  window.addEventListener("load", sync);
+  setTimeout(sync, 300);
 }
 
 /* --- ПОРТФОЛИО (главная — превью) --- */
