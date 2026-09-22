@@ -42,6 +42,12 @@ function currentPage() {
   return p === "" ? "index.html" : p;
 }
 
+/* главная ли это страница (для отключения сетки) */
+function isHomePage() {
+  const p = currentPage().toLowerCase();
+  return p === "index.html" || p === "" || p === "/";
+}
+
 function buildHeader() {
   const mount = $("[data-header]");
   if (!mount) return;
@@ -452,14 +458,35 @@ function renderContacts() {
     </div>`;
 }
 
+/* --- сетка-заглушка на всех страницах, кроме главной --- */
+function initGridBackdrop() {
+  if (isHomePage()) return;            // на главной — видео, сетка не нужна
+  if ($(".grid-backdrop")) return;     // не дублируем
+
+  const d = document.createElement("div");
+  d.className = "grid-backdrop";
+  d.setAttribute("aria-hidden", "true");
+  d.innerHTML = `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <pattern id="bmGrid" width="64" height="64" patternUnits="userSpaceOnUse">
+        <path d="M 64 0 L 0 0 0 64" fill="none" stroke="currentColor" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bmGrid)"/>
+  </svg>`;
+  document.body.appendChild(d);
+}
+
 /* ---------- запуск ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   buildHeader();
   buildFooter();
+  initGridBackdrop();
 
   renderHero();
   renderAbout();
   renderProcess();
+  renderServices();
   renderServices();
   renderClients();
   renderPortfolioPreview();

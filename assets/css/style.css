@@ -436,6 +436,75 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   .process-num { font-size: 24px; min-width: 44px; }
 }
 
+/* ---------- сетка-заглушка с мерцанием ---------- */
+.grid-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--neon);
+  opacity: .05;
+  animation: gridFlicker 4.5s ease-in-out infinite;
+}
+.grid-backdrop svg { width: 100%; height: 100%; display: block; }
+
+@keyframes gridFlicker {
+  0%   { opacity: .04; }
+  30%  { opacity: .075; }
+  55%  { opacity: .045; }
+  80%  { opacity: .085; }
+  100% { opacity: .04; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-backdrop { animation: none; opacity: .05; }
+}
+
+/* ---------- адаптив ---------- */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 46px;
+}
+.process-item {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  padding: 28px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color .35s var(--ease), transform .35s var(--ease);
+}
+.process-item:hover {
+  border-color: var(--neon);
+  transform: translateX(6px);
+}
+.process-num {
+  flex: none;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--neon);
+  text-shadow: 0 0 22px var(--neon-glow);
+  min-width: 58px;
+}
+.process-body h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.process-body p {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin: 0;
+}
+@media (max-width: 780px) {
+  .process-item { gap: 18px; padding: 22px; }
+  .process-num { font-size: 24px; min-width: 44px; }
+}
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
