@@ -240,12 +240,41 @@ function renderClients() {
           <h2 style="font-size:clamp(24px,3vw,34px);">Компании, с которыми работали</h2>
         </div>
       </div>
-      <div class="clients reveal">
-        ${list.map(c => c.logo
-          ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
-          : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
+      <div class="clients-viewport">
+        <div class="clients reveal">
+          ${list.map(c => c.logo
+            ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
+            : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
+        </div>
+        <div class="clients-nav" aria-hidden="false">
+          <button type="button" data-clients-prev aria-label="Предыдущие логотипы">${ICONS.arrowLeft}</button>
+          <button type="button" data-clients-next aria-label="Следующие логотипы">${ICONS.arrowRight}</button>
+        </div>
       </div>
     </div>`;
+  initClientsNav();
+}
+
+/* --- ЛИСТАНИЕ ЛОГОТИПОВ (мобильные) --- */
+function initClientsNav() {
+  const track = $(".clients");
+  const prev  = $("[data-clients-prev]");
+  const next  = $("[data-clients-next]");
+  if (!track || !prev || !next) return;
+
+  const step = () => Math.max(track.clientWidth * 0.9, 100);
+
+  const sync = () => {
+    const max = track.scrollWidth - track.clientWidth - 2;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= max;
+  };
+
+  prev.addEventListener("click", () => { track.scrollBy({ left: -step(), behavior: "smooth" }); });
+  next.addEventListener("click", () => { track.scrollBy({ left:  step(), behavior: "smooth" }); });
+  track.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync, { passive: true });
+  sync();
 }
 
 /* --- ПОРТФОЛИО (главная — превью) --- */

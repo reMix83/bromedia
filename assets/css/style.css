@@ -262,60 +262,45 @@ body > .bg-grid {
 }
 
 /* ---------- логотипы клиентов ---------- */
-.clients { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
-.clients { grid-auto-flow: row; justify-items: center; width: 100%; }
-.client-slot { box-sizing: border-box; padding: 8px; }
-
-.client-slot { height: 82px; border-radius: var(--radius-sm); border: 1px dashed var(--line); display: grid; place-items: center; color: var(--text-mute); font-size: 12px; letter-spacing: .1em; background: rgba(16,31,31,.4); transition: border-color .3s var(--ease), color .3s var(--ease); }
-.client-slot:hover { border-color: var(--neon-dim); color: var(--neon); }
-.client-slot img.client-logo {
-  max-width: 82%;
-  max-height: 46px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform .35s var(--ease), filter .35s var(--ease);
-}
-/* цветные, но чуть приглушены, чтобы не пестрили; при наведении — в полную силу */
-.client-slot img.client-logo { filter: saturate(.9) brightness(1.02); }
-.client-slot:hover img.client-logo { transform: scale(1.06); filter: saturate(1.08) brightness(1.06); }
-
-
-/* Clients grid */
 .clients {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
-  align-items: center;
   width: 100%;
+  align-items: stretch;
 }
 
+/* карточка: ФИКСИРОВАННАЯ высота, лого не может её изменить */
 .client-slot {
   box-sizing: border-box;
-  height: 82px;
+  height: 88px;
+  padding: 10px;
   border-radius: var(--radius-sm);
-  border: 1px dashed var(--line);
+  border: 1px solid var(--line-soft);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  color: var(--text-mute);
-  font-size: 12px;
-  letter-spacing: .1em;
-  background: rgba(16,31,31,.4);
-  transition: border-color .3s var(--ease), color .3s var(--ease), transform .25s var(--ease);
+  background: rgba(16,31,31,.42);
+  overflow: hidden;
+  transition: border-color .3s var(--ease);
 }
-.client-slot:hover { border-color: var(--neon-dim); color: var(--neon); }
+.client-slot:hover { border-color: var(--neon-dim); }
+
+/* лого: жёсткий бокс. !important — чтобы перебить глобальное img{max-width:100%} */
 .client-slot img.client-logo {
-  max-width: 82%;
-  max-height: 46px;
-  width: auto;
-  height: auto;
+  display: block;
+  max-width: 100% !important;
+  max-height: 46px !important;
+  width: auto !important;
+  height: auto !important;
   object-fit: contain;
-  transition: transform .35s var(--ease), filter .35s var(--ease);
   filter: saturate(.95) brightness(1.02);
+  transition: transform .3s var(--ease), filter .3s var(--ease);
 }
-.client-slot:hover img.client-logo { transform: scale(1.06); filter: saturate(1.08) brightness(1.06); }
+.client-slot:hover img.client-logo {
+  transform: scale(1.05);
+  filter: saturate(1.1) brightness(1.06);
+}
 
 /* ---------- портфолио ---------- */
 .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
@@ -627,16 +612,77 @@ body > .grid-backdrop {
 
 
 /* Responsive client grid */
+
+/* ============================================================
+   АДАПТИВ БЛОКА КЛИЕНТОВ
+   ============================================================ */
+
+.clients-viewport { position: relative; }
+.clients-nav { display: none; }
+
+/* планшет */
+@media (max-width: 1200px) {
+  .clients { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
   .clients { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-@media (max-width: 600px) {
-  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .client-slot { height: 64px; padding: 6px; }
-  .client-slot img.client-logo { max-height: 28px; }
+
+/* телефон: 3 колонки x 2 ряда = 6 в кадре, остальное листается стрелками */
+@media (max-width: 640px) {
+  .clients {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 68px;
+    grid-auto-flow: row;
+    gap: 8px;
+    max-height: 144px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 0 6px;
+  }
+  .clients::-webkit-scrollbar { height: 0; }
+
+  .client-slot {
+    height: 68px;
+    padding: 6px;
+    scroll-snap-align: start;
+  }
+  .client-slot img.client-logo { max-height: 34px !important; }
+
+  .clients-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .clients-nav button {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    display: grid;
+    place-items: center;
+    background: rgba(16,31,31,.6);
+    transition: .25s var(--ease);
+  }
+  .clients-nav button:hover:not(:disabled) { border-color: var(--neon); color: var(--neon-bright); }
+  .clients-nav button:active { transform: scale(.94); }
+  .clients-nav button:disabled { opacity: .28; cursor: default; }
 }
-@media (max-width: 420px) {
-  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .client-slot { height: 56px; padding: 5px; }
-  .client-slot img.client-logo { max-height: 24px; }
+
+@media (max-width: 400px) {
+  .clients { grid-auto-rows: 60px; max-height: 128px; }
+  .client-slot { height: 60px; }
+  .client-slot img.client-logo { max-height: 30px !important; }
+  .clients-nav button { width: 42px; height: 42px; }
+}
+
+/* отступы текста от краёв экрана */
+@media (max-width: 780px) {
+  .wrap { padding-left: 22px !important; padding-right: 22px !important; }
 }
