@@ -138,17 +138,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .bg-grid::after {
   content: "";
   position: absolute;
-  inset: -100px;
+  inset: 0;
   background-image:
-    repeating-linear-gradient(0deg,  rgba(46,232,208,.018) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(90deg, rgba(46,232,208,.012) 0 1px, transparent 1px 9px);
-  animation: gridDrift 40s linear infinite;
+    repeating-linear-gradient(0deg,  rgba(46,232,208,.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(46,232,208,.035) 0 1px, transparent 1px 3px);
+  animation: gridDrift 22s linear infinite;
 }
 @keyframes gridDrift {
-  to { background-position: 108px 108px, 108px 108px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .bg-grid::after { animation: none; }
+  to { background-position: 60px 60px, 60px 60px; }
 }
 
 /* на внутренних страницах сетка висит только вверху — высотой в экран */
