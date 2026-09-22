@@ -184,7 +184,7 @@ body > .bg-grid {
     linear-gradient(180deg, rgba(10,20,20,.75) 0%, transparent 30%, transparent 62%, var(--bg) 100%);
 }
 
-.hero-inner { position: relative; z-index: 2; padding: 140px 0 90px; max-width: 780px; }
+.hero-inner { position: relative; z-index: 2; padding: 140px 24px 90px; max-width: calc(780px + 48px); }
 .hero h1 {
   font-size: clamp(40px, 7vw, 84px);
   line-height: 1.02; margin: 22px 0 8px;
@@ -690,7 +690,55 @@ body > .grid-backdrop {
 }
 }
 
-/* отступы текста от краёв экрана */
-@media (max-width: 780px) {
-  .wrap { padding-left: 22px !important; padding-right: 22px !important; }
+/* ============================================================
+   ОТСТУПЫ КОНТЕНТА ОТ КРАЁВ ЭКРАНА
+   База: .hero-inner имеет padding: 140px 24px 90px (см. выше)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .wrap,
+  .hero-inner {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap,
+  .hero-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  /* hero: текст не уезжает, заголовок переносится */
+  .hero-inner { padding-top: 120px !important; padding-bottom: 70px !important; }
+  .hero h1 {
+    font-size: clamp(30px, 8.6vw, 44px) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero-sub {
+    font-size: 16px !important;
+    max-width: 100% !important;
+    margin-top: 18px !important;
+  }
+  .eyebrow { font-size: 11px !important; letter-spacing: .17em !important; }
+  .hero-cta { gap: 12px !important; margin-top: 30px !important; }
+  .hero-cta .btn { padding: 13px 22px !important; font-size: 14px !important; }
+  .hero-stats {
+    gap: 26px 34px !important;
+    margin-top: 44px !important;
+    padding-top: 26px !important;
+  }
+  .hero-stats .num { font-size: 26px !important; }
+  .hero-stats .lbl { font-size: 12px !important; }
+}
+
+@media (max-width: 400px) {
+  .wrap,
+  .hero-inner { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero h1 { font-size: clamp(26px, 8vw, 36px) !important; }
+  .hero-stats { gap: 20px 26px !important; }
 }
