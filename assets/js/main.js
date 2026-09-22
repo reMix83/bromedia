@@ -242,7 +242,7 @@ function renderClients() {
       </div>
       <div class="clients reveal">
         ${list.map(c => c.logo
-          ? `<div class="client-slot" style="border-style:solid;"><img src="${esc(c.logo)}" alt="${esc(c.name)}" style="max-height:44px;object-fit:contain;opacity:.72;filter:grayscale(1) brightness(1.6);transition:.3s"></div>`
+          ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
           : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
       </div>
     </div>`;

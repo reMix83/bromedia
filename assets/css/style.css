@@ -271,6 +271,17 @@ body > .bg-grid {
   transition: border-color .3s var(--ease), color .3s var(--ease);
 }
 .client-slot:hover { border-color: var(--neon-dim); color: var(--neon); }
+.client-slot img.client-logo {
+  max-width: 82%;
+  max-height: 46px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform .35s var(--ease), filter .35s var(--ease);
+}
+/* цветные, но чуть приглушены, чтобы не пестрили; при наведении — в полную силу */
+.client-slot img.client-logo { filter: saturate(.9) brightness(1.02); }
+.client-slot:hover img.client-logo { transform: scale(1.06); filter: saturate(1.08) brightness(1.06); }
 
 /* ---------- портфолио ---------- */
 .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
