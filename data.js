@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "1.7";   /* версия сборки — для сброса кэша */
+const BUILD = "1.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -57,12 +57,22 @@ const SITE = {
      Когда будут готовы логотипы компаний, добавь их так:
      { name: "Название", logo: "assets/img/clients/name.png" }
      Пока стоит placeholder: { name: "", logo: "" }                     */
-  clients: [
-    { name: "Газпром поляна",   logo: "assets/img/clients/gazprom.png" },
+    clients: [
+    { name: "Газпром поляна", logo: "assets/img/clients/gazprom.png" },
     { name: "Сбер Университет", logo: "assets/img/clients/sber.png" },
-    { name: "Яндекс Такси",     logo: "assets/img/clients/yandex.png" },
-    { name: "Роза Хутор",       logo: "assets/img/clients/roza.png" },
-    { name: "Додо Пицца",       logo: "assets/img/clients/dodo.png" },
+    { name: "Яндекс Такси", logo: "assets/img/clients/yandex.png" },
+    { name: "Роза Хутор", logo: "assets/img/clients/roza.png" },
+    { name: "Додо Пицца", logo: "assets/img/clients/dodo.png" },
+    { name: "Alpha", logo: "assets/img/clients/alpha.png" },
+    { name: "Johnson", logo: "assets/img/clients/Johnson.png" },
+    { name: "Janssen", logo: "assets/img/clients/janssen.png" },
+    { name: "Synergy", logo: "assets/img/clients/synergy.png" },
+    { name: "MAP", logo: "assets/img/clients/map.png" },
+    { name: "First", logo: "assets/img/clients/first.png" },
+    { name: "Ren", logo: "assets/img/clients/ren.png" },
+    { name: "IZ", logo: "assets/img/clients/iz.png" },
+    { name: "360", logo: "assets/img/clients/360.png" },
+    { name: "78", logo: "assets/img/clients/78.png" },
   ],
 
   /* ---------- Услуги (направления) ---------- */
