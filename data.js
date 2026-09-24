@@ -148,25 +148,25 @@ const SITE = {
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-229792636_456239035",
+            link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-229792636_456239035",
+            link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-229792636_456239035",
+            link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-229792636_456239035",
+            link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
