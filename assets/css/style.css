@@ -184,7 +184,7 @@ body > .bg-grid {
     linear-gradient(180deg, rgba(10,20,20,.75) 0%, transparent 30%, transparent 62%, var(--bg) 100%);
 }
 
-.hero-inner { position: relative; z-index: 2; padding: 140px 0 90px; max-width: 780px; }
+.hero-inner { position: relative; z-index: 2; padding: 140px 24px 90px; max-width: calc(780px + 48px); }
 .hero h1 {
   font-size: clamp(40px, 7vw, 84px);
   line-height: 1.02; margin: 22px 0 8px;
@@ -229,152 +229,7 @@ body > .bg-grid {
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
-/* ---------- \u043f\u043e\u0440\u0442\u0444\u043e\u043b\u0438\u043e: \u0441\u0435\u0442\u043a\u0430 \u0438 \u0444\u0438\u043b\u044c\u0442\u0440\u044b ---------- */
-.portfolio-filters {
-  display: flex; gap: 12px; margin-bottom: 44px; flex-wrap: wrap;
-}
-.filter-btn {
-  padding: 11px 20px; border-radius: 999px; border: 1.5px solid var(--line);
-  font-size: 14px; font-weight: 500; color: var(--text-dim);
-  transition: all .25s var(--ease); cursor: pointer;
-}
-.filter-btn:hover {
-  border-color: var(--neon); color: var(--text);
-}
-.filter-btn.active {
-  background: var(--neon); color: #04100f; border-color: var(--neon);
-  box-shadow: 0 0 16px var(--neon-glow);
-}
-
-.portfolio-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 28px;
-}
-
-.portfolio-card {
-  position: relative; overflow: hidden; border-radius: var(--radius);
-  background: var(--bg-card); border: 1px solid var(--line-soft);
-  cursor: pointer; transition: transform .3s var(--ease), border-color .3s var(--ease);
-}
-.portfolio-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--neon-dim);
-}
-
-.portfolio-card-image {
-  position: relative; width: 100%; padding-bottom: 62.5%; overflow: hidden; background: var(--bg);
-}
-.portfolio-card-image img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; transition: transform .4s var(--ease);
-}
-.portfolio-card:hover .portfolio-card-image img {
-  transform: scale(1.06);
-}
-
-.portfolio-play-btn {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--neon); color: #04100f;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity .3s var(--ease), transform .3s var(--ease);
-  z-index: 10;
-}
-.portfolio-card:hover .portfolio-play-btn {
-  opacity: 1;
-}
-.portfolio-play-btn:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.portfolio-overlay {
-  padding: 24px; background: linear-gradient(160deg, var(--bg-card), var(--bg-2));
-  border-top: 1px solid var(--line-soft);
-}
-.portfolio-overlay h3 {
-  font-size: 18px; margin-bottom: 8px; color: var(--neon-bright);
-}
-.portfolio-overlay p {
-  font-size: 14px; color: var(--text-dim); line-height: 1.5;
-}
-.portfolio-client {
-  margin-top: 12px; color: var(--text-mute); font-size: 12px; text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-/* ---------- \u043c\u043e\u0434\u0430\u043b\u044c\u043d\u043e\u0435 \u043e\u043a\u043d\u043e \u0432\u0438\u0434\u0435\u043e ---------- */
-.video-modal {
-  position: fixed; inset: 0; z-index: 200; opacity: 0; pointer-events: none;
-  transition: opacity .3s var(--ease);
-}
-.video-modal.open {
-  opacity: 1; pointer-events: auto;
-}
-
-.video-modal-overlay {
-  position: absolute; inset: 0; background: rgba(10, 20, 20, 0.92);
-  backdrop-filter: blur(8px);
-}
-
-.video-modal-content {
-  position: absolute; inset: 40px; max-width: 1100px;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  background: var(--bg); border-radius: var(--radius);
-  border: 1px solid var(--line); overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
-  z-index: 210;
-}
-
-.video-modal-close {
-  position: absolute; top: 16px; right: 16px; z-index: 220;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1); color: var(--text);
-  font-size: 28px; line-height: 1; cursor: pointer;
-  transition: background .25s var(--ease), color .25s var(--ease);
-}
-.video-modal-close:hover {
-  background: rgba(46, 232, 208, 0.2); color: var(--neon);
-}
-
-.video-modal-player {
-  width: 100%; height: 100%; padding-bottom: 56.25%;
-  position: relative;
-}
-.video-modal-player iframe {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-}
-
-@media (max-width: 900px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  .video-modal-content {
-    inset: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .portfolio-filters {
-    gap: 8px;
-  }
-  .filter-btn {
-    padding: 9px 14px;
-    font-size: 13px;
-  }
-  .video-modal-content {
-    inset: 12px;
-  }
-  .video-modal-close {
-    width: 38px; height: 38px; font-size: 24px;
-  }
-}
-
-/* ---------- \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438 ---------- */
+/* ---------- карточки ---------- */
 .card {
   background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-2) 100%);
   border: 1px solid var(--line-soft);
@@ -412,11 +267,13 @@ body > .bg-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
+  align-items: stretch;
 }
 
+/* карточка: ФИКСИРОВАННАЯ высота, лого не может её изменить */
 .client-slot {
   box-sizing: border-box;
-  height: 86px;                        /* ФИКСИРОВАННАЯ высота — все карточки одинаковые */
+  height: 88px;
   padding: 10px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line-soft);
@@ -424,18 +281,18 @@ body > .bg-grid {
   align-items: center;
   justify-content: center;
   background: rgba(16,31,31,.42);
+  overflow: hidden;
   transition: border-color .3s var(--ease);
-  overflow: hidden;                    /* ничего не вылезает */
 }
 .client-slot:hover { border-color: var(--neon-dim); }
 
-/* логотип — жёсткий бокс, никогда не растягивает карточку */
+/* лого: жёсткий бокс. !important — чтобы перебить глобальное img{max-width:100%} */
 .client-slot img.client-logo {
   display: block;
-  max-width: 100%;
-  max-height: 46px;
-  width: auto;
-  height: auto;
+  max-width: 100% !important;
+  max-height: 46px !important;
+  width: auto !important;
+  height: auto !important;
   object-fit: contain;
   filter: saturate(.95) brightness(1.02);
   transition: transform .3s var(--ease), filter .3s var(--ease);
@@ -751,15 +608,19 @@ body > .grid-backdrop {
   .support-note { padding: 24px; }
 }
 
+
+
+
+/* Responsive client grid */
+
 /* ============================================================
-   АДАПТИВ КЛИЕНТОВ
-   десктоп: 5 колонок · планшет: 4/3 · телефон: 3 колонки x 2 ряда
+   АДАПТИВ БЛОКА КЛИЕНТОВ
    ============================================================ */
 
 .clients-viewport { position: relative; }
 .clients-nav { display: none; }
 
-/* --- планшет --- */
+/* планшет */
 @media (max-width: 1200px) {
   .clients { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
@@ -767,62 +628,196 @@ body > .grid-backdrop {
   .clients { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* --- телефон: ровно 6 в кадре (3 x 2), остальное листается --- */
+/* телефон: 3 колонки x 2 ряда = 6 в кадре, остальное листается стрелками */
 @media (max-width: 640px) {
+
+  /* лента: контейнер со скроллом по горизонтали */
   .clients {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: 66px;
-    grid-auto-flow: row;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 210px;                     /* 3 ряда по 68px + отступы */
     gap: 8px;
-    max-height: 140px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 2px 0 6px;
-    scroll-padding-left: 2px;
+    padding: 0 0 8px;
   }
   .clients::-webkit-scrollbar { height: 0; }
 
+  /* каждая карточка — фиксированная ширина, 3 в столбик по высоте */
   .client-slot {
-    height: 66px;
+    flex: 0 0 auto;
+    width: calc((100vw - 44px - 16px) / 2);   /* 2 колонки в кадре */
+    height: 62px;
     padding: 6px;
     scroll-snap-align: start;
   }
-  .client-slot img.client-logo { max-height: 34px !important; }
+  .client-slot img.client-logo { max-height: 32px !important; }
 
+  /* кнопки листания */
   .clients-nav {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     justify-content: center;
     margin-top: 18px;
   }
   .clients-nav button {
-    width: 46px; height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 999px;
     border: 1px solid var(--line);
-    color: var(--text-dim);
+    color: var(--neon-bright);
     display: grid;
     place-items: center;
-    background: rgba(16,31,31,.6);
+    background: rgba(16,31,31,.7);
     transition: .25s var(--ease);
   }
-  .clients-nav button:hover:not(:disabled) { border-color: var(--neon); color: var(--neon-bright); }
+  .clients-nav button svg { display: block; }
+  .clients-nav button:hover:not(:disabled) { border-color: var(--neon); }
   .clients-nav button:active { transform: scale(.94); }
   .clients-nav button:disabled { opacity: .28; cursor: default; }
 }
 
 @media (max-width: 400px) {
-  .clients { grid-auto-rows: 58px; max-height: 126px; }
-  .client-slot { height: 58px; }
-  .client-slot img.client-logo { max-height: 30px !important; }
-  .clients-nav button { width: 42px; height: 42px; }
+  .clients { height: 198px; }
+  .client-slot { width: calc((100vw - 44px - 16px) / 2); height: 58px; }
+  .client-slot img.client-logo { max-height: 28px !important; }
+  .clients-nav button { width: 44px; height: 44px; }
+}
 }
 
-/* --- отступы текста от краёв на телефоне --- */
-@media (max-width: 780px) {
-  .wrap { padding-left: 22px; padding-right: 22px; }
-  .hero-inner { padding-left: 22px; padding-right: 22px; }
+/* ============================================================
+   ОТСТУПЫ КОНТЕНТА ОТ КРАЁВ ЭКРАНА
+   База: .hero-inner имеет padding: 140px 24px 90px (см. выше)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .wrap,
+  .hero-inner {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap,
+  .hero-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  /* hero: текст не уезжает, заголовок переносится */
+  .hero-inner { padding-top: 120px !important; padding-bottom: 70px !important; }
+  .hero h1 {
+    font-size: clamp(30px, 8.6vw, 44px) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero-sub {
+    font-size: 16px !important;
+    max-width: 100% !important;
+    margin-top: 18px !important;
+  }
+  .eyebrow { font-size: 11px !important; letter-spacing: .17em !important; }
+  .hero-cta { gap: 12px !important; margin-top: 30px !important; }
+  .hero-cta .btn { padding: 13px 22px !important; font-size: 14px !important; }
+  .hero-stats {
+    gap: 26px 34px !important;
+    margin-top: 44px !important;
+    padding-top: 26px !important;
+  }
+  .hero-stats .num { font-size: 26px !important; }
+  .hero-stats .lbl { font-size: 12px !important; }
+}
+
+@media (max-width: 400px) {
+  .wrap,
+  .hero-inner { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero h1 { font-size: clamp(26px, 8vw, 36px) !important; }
+  .hero-stats { gap: 20px 26px !important; }
+}
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО (Yandex Disk)
+   ============================================================ */
+
+.video-modal {
+  position: fixed; inset: 0; z-index: 300;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s var(--ease);
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px;
+}
+.video-modal.open { opacity: 1; pointer-events: auto; }
+
+.video-modal-overlay {
+  position: absolute; inset: 0;
+  background: rgba(6, 14, 14, .93);
+  backdrop-filter: blur(10px);
+}
+
+.video-modal-box {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1080px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7);
+  transform: translateY(14px) scale(.98);
+  transition: transform .35s var(--ease);
+}
+.video-modal.open .video-modal-box { transform: none; }
+
+.video-modal-frame {
+  position: relative; width: 100%; padding-bottom: 56.25%;
+  background: #000;
+}
+.video-modal-frame iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none;
+}
+
+.video-modal-info {
+  padding: 20px 24px 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.video-modal-info h3 {
+  font-size: 20px; margin-bottom: 8px;
+  color: var(--neon-bright);
+}
+.video-modal-info p {
+  color: var(--text-dim); font-size: 15px; line-height: 1.55;
+}
+.video-modal-info .vm-cat {
+  display: inline-block; margin-bottom: 10px;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--neon); opacity: .85;
+}
+
+.video-modal-close {
+  position: absolute; top: 14px; right: 14px; z-index: 5;
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(10,20,20,.75); color: var(--text);
+  border: 1px solid var(--line);
+  font-size: 24px; line-height: 1;
+  transition: .25s var(--ease);
+}
+.video-modal-close:hover {
+  background: var(--neon); color: #04100f; border-color: var(--neon);
+}
+
+@media (max-width: 700px) {
+  .video-modal { padding: 14px; }
+  .video-modal-close { top: 8px; right: 8px; width: 38px; height: 38px; }
+  .video-modal-info { padding: 16px 18px 20px; }
+  .video-modal-info h3 { font-size: 17px; }
+  .video-modal-info p { font-size: 14px; }
 }

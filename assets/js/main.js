@@ -17,6 +17,8 @@ const ICONS = {
   rutube: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>',
   dzen: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-.4 5.3-2.7 7.6-8 8v.1c5.3.4 7.6 2.7 8 8h.1c.4-5.3 2.7-7.6 8-8v-.1c-5.3-.4-7.6-2.7-8-8H12z"/></svg>',
   email: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>',
+  arrowLeft:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+  arrowRight: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
 };
 
 /* ---------- вспомогательное ---------- */
@@ -114,66 +116,69 @@ function initReveal() {
 }
 
 /* ============================================================
-   МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО YANDEX DISK
+   МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО (Yandex Disk)
    ============================================================ */
 
-function createVideoModal() {
-  let modal = document.getElementById('videoModal');
-  if (modal) return;
-  
-  modal = document.createElement('div');
-  modal.id = 'videoModal';
-  modal.className = 'video-modal';
+function ensureVideoModal() {
+  let modal = document.getElementById("videoModal");
+  if (modal) return modal;
+
+  modal = document.createElement("div");
+  modal.id = "videoModal";
+  modal.className = "video-modal";
   modal.innerHTML = `
-    <div class="video-modal-overlay"></div>
-    <div class="video-modal-content">
-      <button class="video-modal-close" aria-label="Закрыть">×</button>
-      <div class="video-modal-player">
-        <iframe id="videoFrame" width="100%" height="100%" 
-          allow="fullscreen" style="border:none;"></iframe>
+    <div class="video-modal-overlay" data-close></div>
+    <div class="video-modal-box">
+      <button class="video-modal-close" data-close aria-label="Закрыть">&times;</button>
+      <div class="video-modal-frame">
+        <iframe id="videoModalFrame" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-    </div>
-  `;
+      <div class="video-modal-info">
+        <span class="vm-cat" id="videoModalCat"></span>
+        <h3 id="videoModalTitle"></h3>
+        <p id="videoModalDesc"></p>
+      </div>
+    </div>`;
   document.body.appendChild(modal);
-  
-  const overlay = modal.querySelector('.video-modal-overlay');
-  const closeBtn = modal.querySelector('.video-modal-close');
-  
-  const closeModal = () => {
-    modal.classList.remove('open');
-    document.getElementById('videoFrame').src = '';
-  };
-  overlay.addEventListener('click', closeModal);
-  closeBtn.addEventListener('click', closeModal);
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+
+  modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) closeVideoModal();
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeVideoModal();
+  });
+
+  return modal;
 }
 
-function openVideoModal(videoUrl) {
-  createVideoModal();
-  const modal = document.getElementById('videoModal');
-  const frame = document.getElementById('videoFrame');
-  
-  // Преобразуем ссылку Yandex Disk в embed-ссылку
-  const embedUrl = videoUrl.replace(/[?#].*$/, '').replace(/\/$/, '') + '?embedded=true';
-  
-  frame.src = embedUrl;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+/* превращаем ссылку Yandex Disk в embed-ссылку */
+function toEmbedUrl(url) {
+  if (!url) return "";
+  /* /i/<id>  →  /i/<id>?embedded=true  (публичная ссылка уже отдаёт плеер) */
+  const clean = url.split("?")[0].replace(/\/$/, "");
+  return clean + "?embedded=true";
 }
 
-// Закрытие модального окна при ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    const modal = document.getElementById('videoModal');
-    if (modal && modal.classList.contains('open')) {
-      modal.classList.remove('open');
-      document.getElementById('videoFrame').src = '';
-      document.body.style.overflow = '';
-    }
-  }
-});
+function openVideoModal(work, catName) {
+  const modal = ensureVideoModal();
+  const frame = document.getElementById("videoModalFrame");
+
+  document.getElementById("videoModalCat").textContent  = catName || "";
+  document.getElementById("videoModalTitle").textContent = work.title || "";
+  document.getElementById("videoModalDesc").textContent  = work.description || "";
+
+  frame.src = toEmbedUrl(work.link);
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById("videoModal");
+  if (!modal || !modal.classList.contains("open")) return;
+  modal.classList.remove("open");
+  document.getElementById("videoModalFrame").src = "";
+  document.body.style.overflow = "";
+}
 
 /* ============================================================
    РЕНДЕР СЕКЦИЙ
@@ -308,9 +313,13 @@ function renderClients() {
             ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
             : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
         </div>
-        <div class="clients-nav" aria-hidden="false">
-          <button type="button" data-clients-prev aria-label="Предыдущие логотипы">${ICONS.arrowLeft}</button>
-          <button type="button" data-clients-next aria-label="Следующие логотипы">${ICONS.arrowRight}</button>
+        <div class="clients-nav">
+          <button type="button" data-clients-prev aria-label="Предыдущие логотипы">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" data-clients-next aria-label="Следующие логотипы">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
     </div>`;
@@ -324,19 +333,33 @@ function initClientsNav() {
   const next  = $("[data-clients-next]");
   if (!track || !prev || !next) return;
 
-  const step = () => Math.max(track.clientWidth * 0.9, 100);
-
-  const sync = () => {
-    const max = track.scrollWidth - track.clientWidth - 2;
-    prev.disabled = track.scrollLeft <= 2;
-    next.disabled = track.scrollLeft >= max;
+  /* шаг = ширина одной карточки + gap (т.е. сдвиг на колонку) */
+  const step = () => {
+    const slot = track.querySelector(".client-slot");
+    if (!slot) return track.clientWidth * 0.8;
+    const gap = parseFloat(getComputedStyle(track).gap) || 8;
+    return (slot.getBoundingClientRect().width + gap) * 2;  /* 2 колонки разом */
   };
 
-  prev.addEventListener("click", () => { track.scrollBy({ left: -step(), behavior: "smooth" }); });
-  next.addEventListener("click", () => { track.scrollBy({ left:  step(), behavior: "smooth" }); });
+  const sync = () => {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= maxScroll - 2;
+    /* если листать нечего — прячем кнопки совсем */
+    const nothingToScroll = maxScroll <= 2;
+    const nav = $(".clients-nav");
+    if (nav) nav.style.display = nothingToScroll ? "none" : "";
+  };
+
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left:  step(), behavior: "smooth" }));
   track.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync, { passive: true });
+
+  /* первый расчёт — после отрисовки картинок */
   sync();
+  window.addEventListener("load", sync);
+  setTimeout(sync, 300);
 }
 
 /* --- ПОРТФОЛИО (главная — превью) --- */
@@ -393,14 +416,15 @@ function renderPortfolioPage() {
               <div class="work-grid">
                 ${cat.works.length
                   ? cat.works.map(w => `
-                      <article class="work reveal" ${w.link ? `onclick="window.open('${esc(w.link)}','_blank')"` : ""}>
+                      <article class="work reveal" data-work="${esc(w.title)}" data-cat="${esc(cat.name)}" ${w.link ? 'style="cursor:pointer;"' : ""}>
                         ${w.thumb
                           ? `<img src="${esc(w.thumb)}" alt="${esc(w.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
                           : `<div class="work-thumb">Скоро</div>`}
-                        <div class="play-badge">${ICONS.play}</div>
+                        ${w.link ? `<div class="play-badge">${ICONS.play}</div>` : ""}
                         <div class="work-meta">
                           <div class="cat">${esc(cat.name)}</div>
                           <h4>${esc(w.title)}</h4>
+                          ${w.description ? `<p style="margin-top:6px;font-size:13px;color:var(--text-mute);line-height:1.45;">${esc(w.description)}</p>` : ""}
                         </div>
                       </article>`).join("")
                   : `<div class="empty-note">Здесь появятся работы — наполняется контентом</div>`}
@@ -419,6 +443,20 @@ function renderPortfolioPage() {
         sec.style.display = (f === "all" || sec.dataset.dir === f) ? "" : "none";
       });
     });
+  });
+
+  /* клик по работе с видео → открываем модалку */
+  const allWorks = SITE.portfolio.flatMap(d =>
+    d.categories.flatMap(c => c.works.map(w => ({ ...w, _cat: c.name })))
+  );
+
+  $$("[data-work]", mount).forEach(card => {
+    const title = card.dataset.work;
+    const catName = card.dataset.cat;
+    const work = allWorks.find(w => w.title === title && w._cat === catName);
+    if (!work || !work.link) return;
+
+    card.addEventListener("click", () => openVideoModal(work, catName));
   });
 
   if (location.hash) {
