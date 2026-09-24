@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "3.8";   /* версия сборки — для сброса кэша */
+const BUILD = "4.0";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -179,34 +179,28 @@ const SITE = {
         { name: "Реклама",            works: [] },
         { name: "Видеокурсы",         works: [
           {
-            title: "Сбер-Университет",
+            title: "Сбер-Университет — монтаж и инфографика",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет1 (монтаж и инфографика)"
+            link: "https://storage.yandexcloud.net/bromedia-video/sber.mp4",
+            description: "Ролик для Сбер-Университета: монтаж, инфографика, саунд-дизайн. 60 секунд."
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет2 (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет3 (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет4 (монтаж и инфографика)"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет5 (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
         { name: "Видеоблоги",           works: [
