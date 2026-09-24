@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "3.3";   /* версия сборки — для сброса кэша */
+const BUILD = "3.4";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -148,25 +148,25 @@ const SITE = {
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://disk.yandex.ru/i/8T1l37KrVITBTw",
+            link: "https://vkvideo.ru/video-229792636_456239035",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://disk.yandex.ru/i/8T1l37KrVITBTw",
+            link: "https://vkvideo.ru/video-229792636_456239035",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://disk.yandex.ru/i/8T1l37KrVITBTw",
+            link: "https://vkvideo.ru/video-229792636_456239035",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://disk.yandex.ru/i/8T1l37KrVITBTw",
+            link: "https://vkvideo.ru/video-229792636_456239035",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },

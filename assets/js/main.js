@@ -151,23 +151,100 @@ function ensureVideoModal() {
   return modal;
 }
 
-/* превращаем ссылку Yandex Disk в embed-ссылку */
-function toEmbedUrl(url) {
-  if (!url) return "";
-  /* /i/<id>  →  /i/<id>?embedded=true  (публичная ссылка уже отдаёт плеер) */
-  const clean = url.split("?")[0].replace(/\/$/, "");
-  return clean + "?embedded=true";
+/* ============================================================
+   РАСПОЗНАВАНИЕ ССЫЛОК НА ВИДЕО
+   Поддержка: VK Video (embed), Яндекс.Диск (внешняя ссылка), YouTube, прямые mp4
+   ============================================================ */
+
+/* VK Video: vkvideo.ru/video-<oid>_<id>  или  vk.com/video-<oid>_<id> */
+function parseVk(url) {
+  const m = url.match(/video(-?\d+)_(\d+)/);
+  if (!m) return null;
+  const oid = m[1];
+  const id  = m[2];
+  /* video_ext.php ВКЛЮЧАЕТ www.vk.com — встраивание разрешено */
+  return `https://vk.com/video_ext.php?oid=${oid}&id=${id}&hd=2&autoplay=1`;
+}
+
+function isYandexDisk(url) {
+  return /disk\.yandex\.ru|yadi\.su/.test(url);
+}
+
+function isYouTube(url) {
+  return /youtube\.com|youtu\.be/.test(url);
+}
+
+function isDirectVideo(url) {
+  return /\.(mp4|webm|ogv|mov)(\?|$)/i.test(url);
+}
+
+/*
+  Возвращает объект:
+    { type: "vk"|"youtube"|"direct"|"external", src: "..." }
+  type "external" — встроить нельзя, показываем кнопку
+*/
+function resolveVideo(url) {
+  if (!url) return { type: "none", src: "" };
+
+  const vk = parseVk(url);
+  if (vk) return { type: "vk", src: vk };
+
+  if (isYouTube(url)) {
+    const yt = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+    return yt
+      ? { type: "youtube", src: `https://www.youtube.com/embed/${yt[1]}` }
+      : { type: "external", src: url };
+  }
+
+  if (isDirectVideo(url)) return { type: "direct", src: url };
+
+  if (isYandexDisk(url)) return { type: "external", src: url };
+
+  return { type: "external", src: url };
 }
 
 function openVideoModal(work, catName) {
   const modal = ensureVideoModal();
   const frame = document.getElementById("videoModalFrame");
+  const info  = modal.querySelector(".video-modal-info");
 
-  document.getElementById("videoModalCat").textContent  = catName || "";
+  document.getElementById("videoModalCat").textContent   = catName || "";
   document.getElementById("videoModalTitle").textContent = work.title || "";
   document.getElementById("videoModalDesc").textContent  = work.description || "";
 
-  frame.src = toEmbedUrl(work.link);
+  /* убираем старую кнопку-внешнюю ссылку, если была */
+  const oldLink = modal.querySelector(".video-modal-external");
+  if (oldLink) oldLink.remove();
+
+  const v = resolveVideo(work.link || work.videoUrl);
+
+  /* видео в отдельном контейнере — управляем им сами */
+  const frameWrap = modal.querySelector(".video-modal-frame");
+  const linkWrap  = modal.querySelector(".video-modal-linkwrap");
+
+  if (v.type === "direct") {
+    /* прямой mp4 — играем нативным плеером */
+    frameWrap.innerHTML = `<video id="videoModalFrame" controls playsinline autoplay
+        style="position:absolute;inset:0;width:100%;height:100%;background:#000;">
+        <source src="${esc(v.src)}" type="video/mp4">
+      </video>`;
+  } else if (v.type === "external") {
+    /* встроить нельзя (Яндекс.Диск) — показываем карточку с кнопкой */
+    frameWrap.innerHTML = `
+      <div class="video-ext-block">
+        <div class="video-ext-icon">${ICONS.play}</div>
+        <p>Это видео размещено на внешнем хостинге,<br>для просмотра откроем его в новом окне.</p>
+        <a class="btn btn-primary video-modal-external" href="${esc(v.src)}" target="_blank" rel="noopener">
+          Открыть видео
+        </a>
+      </div>`;
+  } else {
+    /* vk / youtube — iframe, встраивание разрешено */
+    frameWrap.innerHTML = `<iframe id="videoModalFrame" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+        allowfullscreen></iframe>`;
+    frameWrap.querySelector("iframe").src = v.src;
+  }
+
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -175,8 +252,16 @@ function openVideoModal(work, catName) {
 function closeVideoModal() {
   const modal = document.getElementById("videoModal");
   if (!modal || !modal.classList.contains("open")) return;
+
+  const frameWrap = modal.querySelector(".video-modal-frame");
+  /* останавливаем воспроизведение и очищаем контейнер */
+  const media = frameWrap.querySelector("iframe, video");
+  if (media) {
+    if (media.tagName === "VIDEO") { media.pause(); media.src = ""; }
+    else { media.src = "about:blank"; }
+  }
+  frameWrap.innerHTML = "";
   modal.classList.remove("open");
-  document.getElementById("videoModalFrame").src = "";
   document.body.style.overflow = "";
 }
 
