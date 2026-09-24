@@ -851,76 +851,56 @@ body > .grid-backdrop {
 }
 
 /* ============================================================
-   РАБОТЫ НА МОБИЛЬНЫХ: 4 плитки в кадре (2x2) + листание стрелками
-   На десктопе всё остаётся как было — обычная сетка.
+   РАБОТЫ НА МОБИЛЬНЫХ: плитка 2x2 = 4 работы в кадре,
+   остальные листаются стрелками.  Десктоп не затрагивается.
    ============================================================ */
 
 .works-viewport { position: relative; }
-.works-nav { display: none; }        /* стрелки только на мобильных */
+.works-nav { display: none; }              /* стрелки только на телефоне */
 
 @media (max-width: 780px) {
 
-  /* лента: элементы идут вниз, потом вправо; высота = ровно 2 ряда */
+  /* лента работ: заполняется сверху вниз, затем вправо.
+     Высота = ровно 2 ряда карточек → в кадре 4 плитки. */
   .works-viewport .work-grid {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    height: 460px;                    /* 2 ряда карточек + отступ */
-    gap: 14px;
+    gap: 12px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 6px;
+    /* высота задаётся из JS через --row-h, чтобы попасть точно в 2 ряда */
   }
   .works-viewport .work-grid::-webkit-scrollbar { height: 0; }
 
-  /* каждая плитка — половина ширины экрана минус отступы */
+  /* карточка: половина ширины, пропорция 16:10 */
   .works-viewport .work {
     flex: 0 0 auto;
-    width: calc((100vw - 44px - 14px) / 2);
-    max-width: calc((100vw - 44px - 14px) / 2);
-    height: 223px;
+    width:  var(--card-w, calc((100vw - 44px - 12px) / 2));
+    height: var(--card-h, calc((100vw - 44px - 12px) / 2 * 0.64));
     scroll-snap-align: start;
     margin: 0;
   }
 
-  /* в маленькой плитке оставляем только обложку и короткую подпись */
-  .works-viewport .work .work-meta {
-    padding: 12px 13px 14px;
-  }
-  .works-viewport .work .work-meta .cat {
-    font-size: 10px;
-    letter-spacing: .06em;
-    margin-bottom: 4px;
-  }
-  .works-viewport .work .work-meta h4 {
-    font-size: 14px;
-    line-height: 1.25;
-  }
-  /* описание в плитке скрываем — оно есть в модалке */
-  .works-viewport .work .work-meta p { display: none; }
+  /* компактная подпись внутри плитки */
+  .works-viewport .work .work-meta { padding: 10px 12px 12px; }
+  .works-viewport .work .work-meta .cat { font-size: 9px; margin-bottom: 3px; }
+  .works-viewport .work .work-meta h4  { font-size: 13px; line-height: 1.2; }
+  .works-viewport .work .work-meta p   { display: none; }   /* описание будет в модалке */
+  .works-viewport .play-badge { width: 34px; height: 34px; top: 10px; right: 10px; }
+  .works-viewport .play-badge svg { width: 11px; height: 11px; }
 
-  .works-viewport .play-badge {
-    width: 40px; height: 40px;
-  }
-
-  /* стрелки — как у логотипов клиентов */
-  .works-nav {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 18px;
-  }
+  /* стрелки под лентой — как у клиентских логотипов */
+  .works-nav { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
   .works-nav button {
-    width: 46px; height: 46px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    color: var(--text-dim);
-    display: grid;
-    place-items: center;
+    width: 46px; height: 46px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--text-dim);
+    display: grid; place-items: center;
     background: rgba(16,31,31,.6);
     transition: .25s var(--ease);
   }
@@ -928,15 +908,4 @@ body > .grid-backdrop {
   .works-nav button:hover:not(:disabled) { border-color: var(--neon); color: var(--neon-bright); }
   .works-nav button:active { transform: scale(.94); }
   .works-nav button:disabled { opacity: .28; cursor: default; }
-}
-
-@media (max-width: 420px) {
-  .works-viewport .work-grid { height: 400px; gap: 12px; }
-  .works-viewport .work {
-    width: calc((100vw - 32px - 12px) / 2);
-    max-width: calc((100vw - 32px - 12px) / 2);
-    height: 194px;
-  }
-  .works-viewport .work .work-meta h4 { font-size: 13px; }
-  .works-nav button { width: 42px; height: 42px; }
 }

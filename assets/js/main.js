@@ -572,35 +572,62 @@ function initWorksNav(scope = document) {
     if (!viewport) return;
     const prev = viewport.querySelector("[data-works-prev]");
     const next = viewport.querySelector("[data-works-next]");
+    const nav  = viewport.querySelector("[data-works-nav]");
     if (!prev || !next) return;
+
+    /* ---------- раскладка: 2 ряда по 2 карточки = 4 в кадре ----------
+       Считаем размеры под текущую ширину экрана и ставим их через CSS-переменные.
+       Так карточки всегда ложатся ровно 2x2, без пустот. */
+    const layout = () => {
+      const cards = $$(".work", track);
+      if (!cards.length) return;
+
+      const cs       = getComputedStyle(viewport);
+      const pad      = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) || 0;
+      const avail    = viewport.clientWidth - pad;   /* доступная ширина */
+      const gap      = 12;
+      const colW     = (avail - gap) / 2;            /* 2 колонки */
+      const rowH     = Math.round(colW / 1.6);       /* пропорция 16:10 */
+
+      track.style.setProperty("--card-w", colW + "px");
+      track.style.setProperty("--card-h", rowH + "px");
+
+      /* высота трека = 2 ряда + зазор → в кадре ровно 4 плитки */
+      const rows   = Math.min(2, Math.ceil(cards.length / 2));
+      const totalH = rows * rowH + (rows - 1) * gap;
+      track.style.height = totalH + "px";
+    };
 
     const step = () => {
       const card = track.querySelector(".work");
       if (!card) return track.clientWidth;
-      const gap = parseFloat(getComputedStyle(track).gap) || 16;
-      return (card.getBoundingClientRect().width + gap) * 2;  /* сдвиг на 2 колонки */
+      const gap = 12;
+      return (card.getBoundingClientRect().width + gap) * 2;   /* 2 колонки разом */
     };
 
     const sync = () => {
       const max = track.scrollWidth - track.clientWidth;
-      const nav = viewport.querySelector("[data-works-nav]");
-      if (max <= 2) {                       /* нечего листать — прячем стрелки */
-        if (nav) nav.style.display = "none";
+      if (!nav) return;
+      if (max <= 4) {                 /* 4 работы и меньше — листать нечего */
+        nav.style.display = "none";
         return;
       }
-      if (nav) nav.style.display = "";
+      nav.style.display = "";
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= max - 2;
     };
 
-    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-    next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
-    track.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("resize", sync, { passive: true });
-    window.addEventListener("load", sync);
+    const refresh = () => { layout(); sync(); };
 
-    sync();
-    setTimeout(sync, 250);
+    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => track.scrollBy({ left:  step(), behavior: "smooth" }));
+    track.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", refresh, { passive: true });
+    window.addEventListener("load", refresh);
+
+    refresh();
+    setTimeout(refresh, 250);
+    setTimeout(refresh, 600);        /* после подгрузки обложек */
   });
 }
 
