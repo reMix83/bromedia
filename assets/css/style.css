@@ -821,3 +821,122 @@ body > .grid-backdrop {
   .video-modal-info h3 { font-size: 17px; }
   .video-modal-info p { font-size: 14px; }
 }
+
+/* ============================================================
+   ВНЕШНЕЕ ВИДЕО (когда встроить нельзя — Яндекс.Диск)
+   ============================================================ */
+
+.video-ext-block {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 18px; padding: 32px; text-align: center;
+  background: linear-gradient(160deg, #101f1f, #0d1a1a);
+}
+.video-ext-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--neon); color: #04100f;
+  box-shadow: 0 0 24px var(--neon-glow);
+}
+.video-ext-block p {
+  color: var(--text-dim); font-size: 15px; line-height: 1.6; margin: 0;
+}
+.video-modal-external { margin-top: 4px; }
+
+@media (max-width: 700px) {
+  .video-ext-block { padding: 22px; gap: 14px; }
+  .video-ext-icon { width: 54px; height: 54px; }
+  .video-ext-block p { font-size: 14px; }
+}
+
+/* ============================================================
+   РАБОТЫ НА МОБИЛЬНЫХ: 4 плитки в кадре (2x2) + листание стрелками
+   На десктопе всё остаётся как было — обычная сетка.
+   ============================================================ */
+
+.works-viewport { position: relative; }
+.works-nav { display: none; }        /* стрелки только на мобильных */
+
+@media (max-width: 780px) {
+
+  /* лента: элементы идут вниз, потом вправо; высота = ровно 2 ряда */
+  .works-viewport .work-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 460px;                    /* 2 ряда карточек + отступ */
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  .works-viewport .work-grid::-webkit-scrollbar { height: 0; }
+
+  /* каждая плитка — половина ширины экрана минус отступы */
+  .works-viewport .work {
+    flex: 0 0 auto;
+    width: calc((100vw - 44px - 14px) / 2);
+    max-width: calc((100vw - 44px - 14px) / 2);
+    height: 223px;
+    scroll-snap-align: start;
+    margin: 0;
+  }
+
+  /* в маленькой плитке оставляем только обложку и короткую подпись */
+  .works-viewport .work .work-meta {
+    padding: 12px 13px 14px;
+  }
+  .works-viewport .work .work-meta .cat {
+    font-size: 10px;
+    letter-spacing: .06em;
+    margin-bottom: 4px;
+  }
+  .works-viewport .work .work-meta h4 {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  /* описание в плитке скрываем — оно есть в модалке */
+  .works-viewport .work .work-meta p { display: none; }
+
+  .works-viewport .play-badge {
+    width: 40px; height: 40px;
+  }
+
+  /* стрелки — как у логотипов клиентов */
+  .works-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .works-nav button {
+    width: 46px; height: 46px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    display: grid;
+    place-items: center;
+    background: rgba(16,31,31,.6);
+    transition: .25s var(--ease);
+  }
+  .works-nav button svg { display: block; }
+  .works-nav button:hover:not(:disabled) { border-color: var(--neon); color: var(--neon-bright); }
+  .works-nav button:active { transform: scale(.94); }
+  .works-nav button:disabled { opacity: .28; cursor: default; }
+}
+
+@media (max-width: 420px) {
+  .works-viewport .work-grid { height: 400px; gap: 12px; }
+  .works-viewport .work {
+    width: calc((100vw - 32px - 12px) / 2);
+    max-width: calc((100vw - 32px - 12px) / 2);
+    height: 194px;
+  }
+  .works-viewport .work .work-meta h4 { font-size: 13px; }
+  .works-nav button { width: 42px; height: 42px; }
+}

@@ -498,22 +498,32 @@ function renderPortfolioPage() {
               <h4 style="font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--neon);margin-bottom:16px;">
                 ${esc(cat.name)}
               </h4>
-              <div class="work-grid">
-                ${cat.works.length
-                  ? cat.works.map(w => `
-                      <article class="work reveal" data-work="${esc(w.title)}" data-cat="${esc(cat.name)}" ${w.link ? 'style="cursor:pointer;"' : ""}>
-                        ${w.thumb
-                          ? `<img src="${esc(w.thumb)}" alt="${esc(w.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
-                          : `<div class="work-thumb">Скоро</div>`}
-                        ${w.link ? `<div class="play-badge">${ICONS.play}</div>` : ""}
-                        <div class="work-meta">
-                          <div class="cat">${esc(cat.name)}</div>
-                          <h4>${esc(w.title)}</h4>
-                          ${w.description ? `<p style="margin-top:6px;font-size:13px;color:var(--text-mute);line-height:1.45;">${esc(w.description)}</p>` : ""}
-                        </div>
-                      </article>`).join("")
-                  : `<div class="empty-note">Здесь появятся работы — наполняется контентом</div>`}
-              </div>
+              ${cat.works.length
+                ? `<div class="works-viewport">
+                     <div class="work-grid" data-works-track>
+                       ${cat.works.map(w => `
+                         <article class="work reveal" data-work="${esc(w.title)}" data-cat="${esc(cat.name)}" ${w.link ? 'style="cursor:pointer;"' : ""}>
+                           ${w.thumb
+                             ? `<img src="${esc(w.thumb)}" alt="${esc(w.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+                             : `<div class="work-thumb">Скоро</div>`}
+                           ${w.link ? `<div class="play-badge">${ICONS.play}</div>` : ""}
+                           <div class="work-meta">
+                             <div class="cat">${esc(cat.name)}</div>
+                             <h4>${esc(w.title)}</h4>
+                             ${w.description ? `<p style="margin-top:6px;font-size:13px;color:var(--text-mute);line-height:1.45;">${esc(w.description)}</p>` : ""}
+                           </div>
+                         </article>`).join("")}
+                     </div>
+                     <div class="works-nav" data-works-nav>
+                       <button type="button" data-works-prev aria-label="Предыдущие работы">
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                       </button>
+                       <button type="button" data-works-next aria-label="Следующие работы">
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                       </button>
+                     </div>
+                   </div>`
+                : `<div class="work-grid"><div class="empty-note">Здесь появятся работы — наполняется контентом</div></div>`}
             </div>`).join("")}
         </section>`).join("")}
     </div>`;
@@ -544,11 +554,54 @@ function renderPortfolioPage() {
     card.addEventListener("click", () => openVideoModal(work, catName));
   });
 
+  initWorksNav(mount);
+
   if (location.hash) {
     const id = location.hash.slice(1);
     const target = $(`[data-dir="${id}"]`, mount);
     if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 150);
   }
+}
+
+/* ============================================================
+   ЛИСТАНИЕ РАБОТ (мобильные): 4 плитки в кадре (2x2), стрелки вбок
+   ============================================================ */
+function initWorksNav(scope = document) {
+  $$("[data-works-track]", scope).forEach(track => {
+    const viewport = track.closest(".works-viewport");
+    if (!viewport) return;
+    const prev = viewport.querySelector("[data-works-prev]");
+    const next = viewport.querySelector("[data-works-next]");
+    if (!prev || !next) return;
+
+    const step = () => {
+      const card = track.querySelector(".work");
+      if (!card) return track.clientWidth;
+      const gap = parseFloat(getComputedStyle(track).gap) || 16;
+      return (card.getBoundingClientRect().width + gap) * 2;  /* сдвиг на 2 колонки */
+    };
+
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const nav = viewport.querySelector("[data-works-nav]");
+      if (max <= 2) {                       /* нечего листать — прячем стрелки */
+        if (nav) nav.style.display = "none";
+        return;
+      }
+      if (nav) nav.style.display = "";
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+    };
+
+    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+    track.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync, { passive: true });
+    window.addEventListener("load", sync);
+
+    sync();
+    setTimeout(sync, 250);
+  });
 }
 
 /* --- ВИДЕОУРОКИ --- */
