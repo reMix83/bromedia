@@ -182,25 +182,31 @@ const SITE = {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет1 (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет2 (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет3 (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+            description: "Наша работа для Сбер-Университет4 (монтаж и инфографика)"
+          },
+          {
+            title: "Сбер-Университет",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Наша работа для Сбер-Университет5 (монтаж и инфографика)"
           }
         ] },
         { name: "Видеоблоги",           works: [
