@@ -451,6 +451,47 @@ function initClientsNav() {
 function renderPortfolioPreview() {
   const mount = $("[data-portfolio-preview]");
   if (!mount) return;
+
+  /* берём ПЕРВУЮ работу каждого направления (editing, shooting, motion, ai) */
+  const featured = [];
+  SITE.portfolio.forEach(dir => {
+    for (const cat of dir.categories) {
+      const w = (cat.works || []).find(x => x.thumb || x.link);
+      if (w) {
+        featured.push({ dir, cat, work: w });
+        break;                       /* только одна карточка на направление */
+      }
+    }
+  });
+
+  const cards = featured.length
+    ? featured.map(({ dir, cat, work }) => `
+        <article class="work reveal" style="cursor:pointer;"
+          data-feat-link="${esc(work.link || "")}"
+          data-feat-title="${esc(work.title)}"
+          data-feat-cat="${esc(cat.name)}"
+          data-feat-desc="${esc(work.description || "")}">
+          ${work.thumb
+            ? `<img src="${esc(work.thumb)}" alt="${esc(work.title)}" loading="lazy"
+                 style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+            : `<div class="work-thumb">${esc(dir.title)}</div>`}
+          ${work.link ? `<div class="play-badge">${ICONS.play}</div>` : ""}
+          <div class="work-meta">
+            <div class="cat">${esc(dir.title)}</div>
+            <h4>${esc(work.title)}</h4>
+          </div>
+        </article>`).join("")
+    : SITE.portfolio.map((dir, i) => `
+        <article class="work reveal" style="transition-delay:${i * 60}ms"
+          onclick="location.href='portfolio.html#${esc(dir.id)}'">
+          <div class="work-thumb">${esc(dir.categories.length)} раздела</div>
+          <div class="play-badge">${ICONS.play}</div>
+          <div class="work-meta">
+            <div class="cat">Направление</div>
+            <h4>${esc(dir.title)}</h4>
+          </div>
+        </article>`).join("");
+
   mount.innerHTML = `
     <div class="wrap">
       <div class="section-head reveal">
@@ -460,18 +501,21 @@ function renderPortfolioPreview() {
         </div>
         <a class="btn btn-ghost" href="portfolio.html">Смотреть всё</a>
       </div>
-      <div class="work-grid">
-        ${SITE.portfolio.map((dir, i) => `
-          <article class="work reveal" style="transition-delay:${i * 60}ms" onclick="location.href='portfolio.html#${esc(dir.id)}'">
-            <div class="work-thumb">${esc(dir.categories.length)} раздела</div>
-            <div class="play-badge">${ICONS.play}</div>
-            <div class="work-meta">
-              <div class="cat">Направление</div>
-              <h4>${esc(dir.title)}</h4>
-            </div>
-          </article>`).join("")}
-      </div>
+      <div class="work-grid" data-featured-grid>${cards}</div>
     </div>`;
+
+  /* клик по избранной работе → модалка с видео */
+  $$("[data-feat-link]", mount).forEach(card => {
+    const link = card.dataset.featLink;
+    if (!link) return;
+    card.addEventListener("click", () => {
+      openVideoModal({
+        title: card.dataset.featTitle,
+        description: card.dataset.featDesc,
+        link: link,
+      }, card.dataset.featCat);
+    });
+  });
 }
 
 /* --- ПОРТФОЛИО: полная страница --- */
@@ -575,59 +619,25 @@ function initWorksNav(scope = document) {
     const nav  = viewport.querySelector("[data-works-nav]");
     if (!prev || !next) return;
 
-    /* ---------- раскладка: 2 ряда по 2 карточки = 4 в кадре ----------
-       Считаем размеры под текущую ширину экрана и ставим их через CSS-переменные.
-       Так карточки всегда ложатся ровно 2x2, без пустот. */
-    const layout = () => {
-      const cards = $$(".work", track);
-      if (!cards.length) return;
-
-      const cs       = getComputedStyle(viewport);
-      const pad      = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) || 0;
-      const avail    = viewport.clientWidth - pad;   /* доступная ширина */
-      const gap      = 12;
-      const colW     = (avail - gap) / 2;            /* 2 колонки */
-      const rowH     = Math.round(colW / 1.6);       /* пропорция 16:10 */
-
-      track.style.setProperty("--card-w", colW + "px");
-      track.style.setProperty("--card-h", rowH + "px");
-
-      /* высота трека = 2 ряда + зазор → в кадре ровно 4 плитки */
-      const rows   = Math.min(2, Math.ceil(cards.length / 2));
-      const totalH = rows * rowH + (rows - 1) * gap;
-      track.style.height = totalH + "px";
-    };
-
-    const step = () => {
-      const card = track.querySelector(".work");
-      if (!card) return track.clientWidth;
-      const gap = 12;
-      return (card.getBoundingClientRect().width + gap) * 2;   /* 2 колонки разом */
-    };
+    /* прокручивается сам .works-viewport; шаг = один экран */
+    const step = () => viewport.clientWidth;
 
     const sync = () => {
-      const max = track.scrollWidth - track.clientWidth;
+      const max = viewport.scrollWidth - viewport.clientWidth;
       if (!nav) return;
-      if (max <= 4) {                 /* 4 работы и меньше — листать нечего */
-        nav.style.display = "none";
-        return;
-      }
+      if (max <= 2) { nav.style.display = "none"; return; }
       nav.style.display = "";
-      prev.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= max - 2;
+      prev.disabled = viewport.scrollLeft <= 2;
+      next.disabled = viewport.scrollLeft >= max - 2;
     };
 
-    const refresh = () => { layout(); sync(); };
-
-    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-    next.addEventListener("click", () => track.scrollBy({ left:  step(), behavior: "smooth" }));
-    track.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("resize", refresh, { passive: true });
-    window.addEventListener("load", refresh);
-
-    refresh();
-    setTimeout(refresh, 250);
-    setTimeout(refresh, 600);        /* после подгрузки обложек */
+    prev.addEventListener("click", () => viewport.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => viewport.scrollBy({ left:  step(), behavior: "smooth" }));
+    viewport.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync, { passive: true });
+    window.addEventListener("load", sync);
+    sync();
+    setTimeout(sync, 250);
   });
 }
 

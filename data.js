@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "3.6";   /* версия сборки — для сброса кэша */
+const BUILD = "3.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -142,9 +142,42 @@ const SITE = {
       id: "editing",
       title: "Видеомонтаж",
       categories: [
-        { name: "Репортажи",          works: [] },
-        { name: "Клиповый монтаж",    works: [] },
-        { name: "Реклама",            works: [
+        { name: "Репортажи",            works: [
+          {
+            title: "Репортажи — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Репортажи — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Репортажи — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Клиповый монтаж",      works: [
+          {
+            title: "Клиповый монтаж — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Клиповый монтаж — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Реклама",            works: [] },
+        { name: "Видеокурсы",         works: [
           {
             title: "Сбер-Университет",
             thumb: "assets/img/works/sber.jpg",
@@ -170,39 +203,262 @@ const SITE = {
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
-        { name: "Видеокурсы",         works: [] },
-        { name: "Видеоблоги",         works: [] },
-        { name: "Короткий формат",    works: [] },
+        { name: "Видеоблоги",           works: [
+          {
+            title: "Видеоблоги — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Видеоблоги — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Короткий формат",      works: [
+          {
+            title: "Короткий формат — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Короткий формат — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Короткий формат — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Короткий формат — работа 4",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
       ],
     },
     {
       id: "shooting",
       title: "Видеосъёмка",
       categories: [
-        { name: "Репортажная съёмка",  works: [] },
-        { name: "Интервью",            works: [] },
-        { name: "Реклама",             works: [] },
-        { name: "Корпоративное видео", works: [] },
-        { name: "Мероприятия",         works: [] },
-        { name: "Видеоблоги",          works: [] },
+        { name: "Репортажная съёмка",   works: [
+          {
+            title: "Репортажная съёмка — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Репортажная съёмка — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Репортажная съёмка — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Интервью",             works: [
+          {
+            title: "Интервью — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Интервью — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Реклама",              works: [
+          {
+            title: "Реклама — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Реклама — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Реклама — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Корпоративное видео",  works: [
+          {
+            title: "Корпоративное видео — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Корпоративное видео — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Мероприятия",          works: [
+          {
+            title: "Мероприятия — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Мероприятия — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Мероприятия — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Видеоблоги",           works: [
+          {
+            title: "Видеоблоги — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Видеоблоги — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
       ],
     },
     {
       id: "motion",
       title: "Моушн-дизайн",
       categories: [
-        { name: "Шейповая анимация и титры", works: [] },
-        { name: "Анимация логотипов",        works: [] },
-        { name: "Виртуальные студии",        works: [] },
-        { name: "3D-интеграции",             works: [] },
+        { name: "Шейповая анимация и титры",works: [
+          {
+            title: "Шейповая анимация и титры — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Шейповая анимация и титры — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Шейповая анимация и титры — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Анимация логотипов",   works: [
+          {
+            title: "Анимация логотипов — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Анимация логотипов — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Виртуальные студии",   works: [
+          {
+            title: "Виртуальные студии — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Виртуальные студии — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "3D-интеграции",        works: [
+          {
+            title: "3D-интеграции — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "3D-интеграции — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
       ],
     },
     {
       id: "ai",
       title: "ИИ-генерации",
       categories: [
-        { name: "AI-видео",   works: [] },
-        { name: "AI-фото",    works: [] },
+        { name: "AI-видео",             works: [
+          {
+            title: "AI-видео — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "AI-видео — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "AI-видео — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "AI-фото",              works: [
+          {
+            title: "AI-фото — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "AI-фото — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
       ],
     },
   ],
