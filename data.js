@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "3.2";   /* версия сборки — для сброса кэша */
+const BUILD = "2.4";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -51,6 +51,63 @@ const SITE = {
       text: "Собираем историю: ритм, драматургия, звук. Добавляем моушн-дизайн и ИИ-генерации." },
     { step: "05", title: "Правки и сдача",
       text: "Вносим правки по вашим замечаниям и отдаём готовый мастер в нужных форматах." },
+  ],
+
+  /* ---------- ПОРТФОЛИО ----------
+     Видео размещаются на Yandex Disk. Структура:
+     { id: 1, title: "название", category: "монтаж/реклама/...", 
+       description: "описание работы", preview: "assets/img/...", 
+       videoUrl: "https://disk.yandex.ru/i/..." }
+   */
+  portfolio: [
+    {
+      id: 1,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    },
+    {
+      id: 2,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    },
+    {
+      id: 3,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    },
+    {
+      id: 4,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    },
+    {
+      id: 5,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    },
+    {
+      id: 6,
+      title: "Сбер-Университет",
+      category: "монтаж",
+      description: "Наша работа для Сбер-Университет (монтаж и инфографика)",
+      preview: "assets/img/portfolio/sber-preview.jpg",
+      videoUrl: "https://disk.yandex.ru/i/8T1l37KrVITBTw"
+    }
   ],
 
   /* ---------- Клиентские логотипы ----------
