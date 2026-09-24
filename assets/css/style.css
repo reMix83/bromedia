@@ -851,51 +851,53 @@ body > .grid-backdrop {
 }
 
 /* ============================================================
-   РАБОТЫ НА МОБИЛЬНЫХ: плитка 2x2 = 4 работы в кадре,
-   остальные листаются стрелками.  Десктоп не затрагивается.
+   РАБОТЫ НА МОБИЛЬНЫХ
+   Сетка 2x2 = 4 работы в кадре; вправо уходит следующая четвёрка.
+   Чистый CSS Grid + scroll-snap, без расчётов в JS.
    ============================================================ */
 
 .works-viewport { position: relative; }
-.works-nav { display: none; }              /* стрелки только на телефоне */
+.works-nav { display: none; }
 
 @media (max-width: 780px) {
 
-  /* лента работ: заполняется сверху вниз, затем вправо.
-     Высота = ровно 2 ряда карточек → в кадре 4 плитки. */
-  .works-viewport .work-grid {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 12px;
+  /* прокручивается сам блок, а не внутренняя сетка */
+  .works-viewport {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;
-    /* высота задаётся из JS через --row-h, чтобы попасть точно в 2 ряда */
+    scrollbar-width: none;
   }
-  .works-viewport .work-grid::-webkit-scrollbar { height: 0; }
+  .works-viewport::-webkit-scrollbar { height: 0; }
 
-  /* карточка: половина ширины, пропорция 16:10 */
+  /* сетка: строит колонки по пол-экрана, ровно 2 ряда */
+  .works-viewport .work-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-columns: calc((100vw - 44px) / 2);   /* 44px = отступы .wrap */
+    gap: 12px;
+    width: max-content;
+    padding: 2px 0 6px;
+  }
+
   .works-viewport .work {
-    flex: 0 0 auto;
-    width:  var(--card-w, calc((100vw - 44px - 12px) / 2));
-    height: var(--card-h, calc((100vw - 44px - 12px) / 2 * 0.64));
-    scroll-snap-align: start;
+    width: auto;
+    height: auto;
+    aspect-ratio: 16/10;
     margin: 0;
+    scroll-snap-align: start;
   }
 
-  /* компактная подпись внутри плитки */
   .works-viewport .work .work-meta { padding: 10px 12px 12px; }
   .works-viewport .work .work-meta .cat { font-size: 9px; margin-bottom: 3px; }
   .works-viewport .work .work-meta h4  { font-size: 13px; line-height: 1.2; }
-  .works-viewport .work .work-meta p   { display: none; }   /* описание будет в модалке */
+  .works-viewport .work .work-meta p   { display: none; }
   .works-viewport .play-badge { width: 34px; height: 34px; top: 10px; right: 10px; }
   .works-viewport .play-badge svg { width: 11px; height: 11px; }
 
-  /* стрелки под лентой — как у клиентских логотипов */
   .works-nav { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
   .works-nav button {
     width: 46px; height: 46px; border-radius: 999px;
