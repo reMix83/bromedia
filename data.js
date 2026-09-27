@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "4.2";   /* версия сборки — для сброса кэша */
+const BUILD = "4.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -144,10 +144,10 @@ const SITE = {
       categories: [
         { name: "Репортажи",            works: [
           {
-            title: "Репортажи — работа 1",
+            title: "Репортаж для телеканала Москва 360",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            link: "https://storage.yandexcloud.net/bromedia-video/360%2B.mp4",
+            description: "Выездной корреспондент, видеосъёмка, технический монтаж"
           },
           {
             title: "Репортажи — работа 2",
@@ -319,10 +319,10 @@ const SITE = {
         ] },
         { name: "Мероприятия",          works: [
           {
-            title: "Мероприятия — работа 1",
+            title: "Баскетбольный турнир «Легенда улиц 2026»",
             thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            link: "https://storage.yandexcloud.net/bromedia-video/Legend.mp4",
+            description: "Видеосъёмка, монтаж, титры"
           },
           {
             title: "Мероприятия — работа 2",
