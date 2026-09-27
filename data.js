@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "4.8";   /* версия сборки — для сброса кэша */
+const BUILD = "4.9";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -142,21 +142,16 @@ const SITE = {
       id: "editing",
       title: "Видеомонтаж",
       categories: [
-        { name: "Репортажи",            works: [
+        { name: "Реклама",            works: [] },
+        { name: "Корпоративное видео", works: [
           {
-            title: "Репортаж для телеканала Москва 360",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://storage.yandexcloud.net/bromedia-video/360%2B.mp4",
-            description: "Выездной корреспондент, видеосъёмка, технический монтаж"
-          },
-          {
-            title: "Репортажи — работа 2",
+            title: "Корпоративное видео — работа 1",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
-            title: "Репортажи — работа 3",
+            title: "Корпоративное видео — работа 2",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
@@ -174,33 +169,6 @@ const SITE = {
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Реклама",            works: [] },
-        { name: "Видеокурсы",         works: [
-          {
-            title: "Сбер-Университет — монтаж и инфографика",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://storage.yandexcloud.net/bromedia-video/sber.mp4",
-            description: "Ролик для Сбер-Университета: монтаж, инфографика, саунд-дизайн. 60 секунд."
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
         { name: "Видеоблоги",           works: [
@@ -243,6 +211,52 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
+        { name: "Репортажи",            works: [
+          {
+            title: "Репортаж для телеканала Москва 360",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/360%2B.mp4",
+            description: "Выездной корреспондент, видеосъёмка, технический монтаж"
+          },
+          {
+            title: "Репортажи — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Репортажи — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Видеокурсы",         works: [
+          {
+            title: "Сбер-Университет — монтаж и инфографика",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/sber.mp4",
+            description: "Ролик для Сбер-Университета: монтаж, инфографика, саунд-дизайн. 60 секунд."
+          },
+          {
+            title: "Сбер-Университет",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+          },
+          {
+            title: "Сбер-Университет",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+          },
+          {
+            title: "Сбер-Университет",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
+          }
+        ] },
       ],
     },
     {
@@ -250,6 +264,12 @@ const SITE = {
       title: "Видеосъёмка",
       categories: [
         { name: "Репортажная съёмка",   works: [
+          {
+            title: "Баскетбольный турнир «Легенда улиц 2026»",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Legend.mp4",
+            description: "Видеосъёмка, монтаж, титры"
+          },
           {
             title: "Репортажная съёмка — работа 1",
             thumb: "assets/img/works/sber.jpg",
@@ -269,15 +289,29 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
-        { name: "Интервью",             works: [
+        { name: "Мероприятия",          works: [
           {
-            title: "Интервью — работа 1",
+            title: "Мероприятия — работа 2",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
-            title: "Интервью — работа 2",
+            title: "Мероприятия — работа 3",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Корпоративное видео",  works: [
+          {
+            title: "Корпоративное видео — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Корпоративное видео — работа 2",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
@@ -303,40 +337,6 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
-        { name: "Корпоративное видео",  works: [
-          {
-            title: "Корпоративное видео — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Мероприятия",          works: [
-          {
-            title: "Баскетбольный турнир «Легенда улиц 2026»",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://storage.yandexcloud.net/bromedia-video/Legend.mp4",
-            description: "Видеосъёмка, монтаж, титры"
-          },
-          {
-            title: "Мероприятия — работа 2",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Мероприятия — работа 3",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
         { name: "Видеоблоги",           works: [
           {
             title: "Видеоблоги — работа 1",
@@ -346,6 +346,20 @@ const SITE = {
           },
           {
             title: "Видеоблоги — работа 2",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          }
+        ] },
+        { name: "Интервью",             works: [
+          {
+            title: "Интервью — работа 1",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела"
+          },
+          {
+            title: "Интервью — работа 2",
             thumb: "assets/img/works/sber.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
