@@ -1,3 +1,4 @@
+{
 /* ============================================
    BRO MEDIA — базовая тема
    Палитра основана на фирменном бирюзовом неоне
@@ -992,4 +993,39 @@ body > .grid-backdrop {
   .works-nav button:hover:not(:disabled) { border-color: var(--neon); color: var(--neon-bright); }
   .works-nav button:active { transform: scale(.94); }
   .works-nav button:disabled { opacity: .28; cursor: default; }
+
+
+/* вертикальные карточки для коротких видео */
+.work.vertical {
+  aspect-ratio: 9/16;
+}
+
+.works-viewport .work.vertical {
+  aspect-ratio: 9/16;
+}
+
+.work.vertical .work-meta {
+  padding: 12px 10px;
+}
+
+.work.vertical .work-meta h4 {
+  font-size: inherit;
+  line-height: 1.3;
+}
+
+.work.vertical .work-meta p {
+  font-size: inherit;
+}
+
+@media (max-width: 780px) {
+  .work.vertical {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .works-viewport .work.vertical {
+    max-width: 75%;
+  }
+}
+
 }
