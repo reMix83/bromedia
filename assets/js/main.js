@@ -612,6 +612,16 @@ function renderPortfolioPage() {
     d.categories.flatMap(c => c.works.map(w => ({ ...w, _cat: c.name })))
   );
 
+  // добавляем класс vertical к вертикальным карточкам на portfolio.html
+  $$('[data-work]', mount).forEach((card) => {
+    const title = card.dataset.work;
+    const catName = card.dataset.cat;
+    const work = allWorks.find(w => w.title === title && w._cat === catName);
+    if (work && work.isVertical) {
+      card.closest('article').classList.add('vertical');
+    }
+  });
+
   $$("[data-work]", mount).forEach(card => {
     const title = card.dataset.work;
     const catName = card.dataset.cat;
