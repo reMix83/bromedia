@@ -251,10 +251,8 @@ function openVideoModal(work, catName) {
   /* добавляем класс vertical если видео из "Короткий формат" */
   if (work && work._cat === "Короткий формат") {
     box.classList.add("vertical");
-    if (frame) frame.style.aspectRatio = "9 / 16";
   } else {
     box.classList.remove("vertical");
-    if (frame) frame.style.aspectRatio = "16 / 9";
   }
   if (work && work.isVertical) {
     box.classList.add("vertical");
