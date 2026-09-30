@@ -245,6 +245,14 @@ function openVideoModal(work, catName) {
     frameWrap.querySelector("iframe").src = v.src;
   }
 
+  /* добавляем класс vertical если видео вертикальное */
+  const box = modal.querySelector(".video-modal-box");
+  if (work && work.isVertical) {
+    box.classList.add("vertical");
+  } else {
+    box.classList.remove("vertical");
+  }
+
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -509,6 +517,12 @@ function renderPortfolioPreview() {
   $$("[data-feat-link]", mount).forEach(card => {
     const link = card.dataset.featLink;
     if (!link) return;
+    /* добавляем класс vertical если нужно */
+    const work = allWorks.find(w => w.title === title && w._cat === catName);
+    if (work && work.isVertical) {
+      card.classList.add("vertical");
+    }
+    
     card.addEventListener("click", () => {
       openVideoModal({
         title: card.dataset.featTitle,
