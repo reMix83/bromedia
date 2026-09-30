@@ -245,23 +245,6 @@ function openVideoModal(work, catName) {
     frameWrap.querySelector("iframe").src = v.src;
   }
 
-  /* добавляем класс vertical если видео вертикальное */
-  const box = modal.querySelector(".video-modal-box");
-
-  /* добавляем класс vertical если видео из "Короткий формат" */
-  if (work && work._cat === "Короткий формат") {
-    box.classList.add("vertical");
-    if (frame) frame.style.aspectRatio = "9 / 16";
-  } else {
-    box.classList.remove("vertical");
-    if (frame) frame.style.aspectRatio = "16 / 9";
-  }
-  if (work && work.isVertical) {
-    box.classList.add("vertical");
-  } else {
-    box.classList.remove("vertical");
-  }
-
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -526,12 +509,6 @@ function renderPortfolioPreview() {
   $$("[data-feat-link]", mount).forEach(card => {
     const link = card.dataset.featLink;
     if (!link) return;
-    /* добавляем класс vertical если нужно */
-    const work = allWorks.find(w => w.title === title && w._cat === catName);
-    if (work && work.isVertical) {
-      card.classList.add("vertical");
-    }
-    
     card.addEventListener("click", () => {
       openVideoModal({
         title: card.dataset.featTitle,
@@ -617,11 +594,6 @@ function renderPortfolioPage() {
     const title = card.dataset.work;
     const catName = card.dataset.cat;
     const work = allWorks.find(w => w.title === title && w._cat === catName);
-
-    /* добавляем класс vertical для вертикальных видео */
-    if (catName === "Короткий формат") {
-      card.classList.add("vertical");
-    }
     if (!work || !work.link) return;
 
     card.addEventListener("click", () => openVideoModal(work, catName));
