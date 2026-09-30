@@ -937,10 +937,14 @@ body > .grid-backdrop {
 /* вертикальные карточки для коротких видео */
 .work.vertical {
   aspect-ratio: 9/16;
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 .works-viewport .work.vertical {
   aspect-ratio: 9/16;
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 @media (max-width: 780px) {
