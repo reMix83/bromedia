@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "4.9";   /* версия сборки — для сброса кэша */
+const BUILD = "5.0";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -142,7 +142,14 @@ const SITE = {
       id: "editing",
       title: "Видеомонтаж",
       categories: [
-        { name: "Реклама",            works: [] },
+        { name: "Реклама",          works: [
+          {
+            title: "Реклама для соцсетей для бренда Nuovita",
+            thumb: "assets/img/works/sber.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/nuovita.mp4",
+            description: "монтаж и титры"
+          }
+        ] },
         { name: "Корпоративное видео", works: [
           {
             title: "Корпоративное видео — работа 1",
