@@ -398,6 +398,7 @@ function renderClients() {
             ? `<div class="client-slot" style="border-style:solid;"><img class="client-logo" src="${esc(c.logo)}" alt="${esc(c.name)}" loading="lazy"></div>`
             : `<div class="client-slot">${has ? "" : "ЛОГОТИП"}</div>`).join("")}
         </div>
+        <p class="clients-note reveal">${esc(SITE.clientsNote || "и многие другие...")}</p>
         <div class="clients-nav">
           <button type="button" data-clients-prev aria-label="Предыдущие логотипы">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>

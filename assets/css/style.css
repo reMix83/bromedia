@@ -620,6 +620,15 @@ body > .grid-backdrop {
 .clients-viewport { position: relative; }
 .clients-nav { display: none; }
 
+/* подпись под плитками логотипов */
+.clients-note {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: .02em;
+  color: var(--text-mute);
+}
+
 /* планшет */
 @media (max-width: 1200px) {
   .clients { grid-template-columns: repeat(4, minmax(0, 1fr)); }

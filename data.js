@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.7";   /* версия сборки — для сброса кэша */
+const BUILD = "5.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -106,7 +106,12 @@ const SITE = {
     { name: "Ddsos", logo: "assets/img/clients/ddsos.png" },
     { name: "Save", logo: "assets/img/clients/save.png" },
     { name: "Soedinenie", logo: "assets/img/clients/soedinenie.png" },
+    { name: "Elinar",  logo: "assets/img/clients/elinar.png" },
+    { name: "MDM",     logo: "assets/img/clients/mdm.png" },
   ],
+
+  /* ---------- Подпись под логотипами ---------- */
+  clientsNote: "и многие другие...",
 
   /* ---------- Услуги (направления) ---------- */
   services: [
