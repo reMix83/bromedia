@@ -966,11 +966,69 @@ body > .grid-backdrop {
 
 @media (max-width: 780px) {
   .work.vertical {
-    max-width: 75%;
+    max-width: 100%;
     margin: 0 auto;
   }
 
-  .works-viewport .work.vertical {
-    max-width: 75%;
+  .works-viewport {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
   }
+
+  .works-viewport .work.vertical {
+    max-width: calc(50% - 8px);
+    margin: 4px;
+  }
+
+  @media (max-width: 480px) {
+    .works-viewport .work.vertical {
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+/* вертикальный модальный плеер */
+.video-modal-box.vertical {
+  max-width: 95vmin;
+  aspect-ratio: 9/16;
+}
+
+.video-modal-box.vertical .video-modal-frame {
+  aspect-ratio: 9/16 !important;
+  padding-bottom: 0 !important;
+}
+
+.video-modal-box.vertical .video-modal-frame video {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 1024px) {
+  .video-modal-box.vertical {
+    max-width: 90vmin;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-modal-box.vertical {
+    max-width: 100vw;
+    aspect-ratio: 9/16;
+  }
+}
+
+/* вертикальные карточки */
+.work.vertical {
+  aspect-ratio: 9/16;
+}
+
+.video-modal-box.vertical {
+  max-width: 90vmin;
+  aspect-ratio: 9/16;
+}
+
+.video-modal-box.vertical .video-modal-frame {
+  aspect-ratio: 9/16;
 }
