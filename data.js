@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.4";   /* версия сборки — для сброса кэша */
+const BUILD = "5.5";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -172,10 +172,10 @@ const SITE = {
         ] },
         { name: "Клиповый монтаж",      works: [
           {
-            title: "Клиповый монтаж — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Ролик отчётник для Донецкой недели моды",
+            thumb: "assets/img/works/donmod.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Donmod.mp4",
+            description: "монтаж и титры"
           },
           {
             title: "Клиповый монтаж — работа 2",
@@ -398,10 +398,10 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
-            title: "Шейповая анимация и титры — работа 3",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Корпоративное видео компании ИЗЛК",
+            thumb: "assets/img/works/izlk_md.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/izlk_MD.mp4",
+            description: "титры по референсу"
           }
         ] },
         { name: "Анимация логотипов",   works: [
@@ -434,10 +434,10 @@ const SITE = {
         ] },
         { name: "3D-интеграции",        works: [
           {
-            title: "3D-интеграции — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Графика для телепередачи «Легенды военной отечественной авиации»",
+            thumb: "assets/img/works/SU27.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/SU27.mp4",
+            description: "Моушн-дизайн с интеграцией 3d модели"
           },
           {
             title: "3D-интеграции — работа 2",
