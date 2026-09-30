@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.8";   /* версия сборки — для сброса кэша */
+const BUILD = "5.9.1";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -170,8 +170,8 @@ const SITE = {
           },
           {
             title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
+            thumb: "assets/img/works/Visit.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
@@ -205,7 +205,7 @@ const SITE = {
         ] },
         { name: "Короткий формат",      works: [
           {
-            title: "Короткий формат — работа 1",
+            title: "Презентация Телеграм канала для студии дизайна «DFLY DESIGN»",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела",
@@ -213,22 +213,22 @@ const SITE = {
           },
           {
             title: "Короткий формат — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
+            thumb: "assets/img/works/Visit.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
             description: "Заглушка для проверки вёрстки раздела",
             isVertical: true
           },
           {
             title: "Короткий формат — работа 3",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
+            thumb: "assets/img/works/Visit.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
             description: "Заглушка для проверки вёрстки раздела",
             isVertical: true
           },
           {
             title: "Короткий формат — работа 4",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
+            thumb: "assets/img/works/Visit.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
             description: "Заглушка для проверки вёрстки раздела",
             isVertical: true
           }
