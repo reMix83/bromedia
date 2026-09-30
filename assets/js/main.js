@@ -467,7 +467,7 @@ function renderPortfolioPreview() {
 
   const cards = featured.length
     ? featured.map(({ dir, cat, work }) => `
-        <article class="work reveal" style="cursor:pointer;"
+        <article class="work${work.isVertical ? ' vertical' : ''} reveal" style="cursor:pointer;"
           data-feat-link="${esc(work.link || "")}"
           data-feat-title="${esc(work.title)}"
           data-feat-cat="${esc(cat.name)}"
