@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.5";   /* версия сборки — для сброса кэша */
+const BUILD = "5.6";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -165,7 +165,7 @@ const SITE = {
           },
           {
             title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -179,21 +179,21 @@ const SITE = {
           },
           {
             title: "Клиповый монтаж — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Видеоблоги",           works: [
           {
-            title: "Видеоблоги — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Видеоблог «Вилла-вино»",
+            thumb: "assets/img/works/vv.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/vv.mp4",
+            description: "Монтаж, моушн-дизайн"
           },
           {
             title: "Видеоблоги — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -201,25 +201,25 @@ const SITE = {
         { name: "Короткий формат",      works: [
           {
             title: "Короткий формат — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Короткий формат — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Короткий формат — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Короткий формат — работа 4",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -233,13 +233,13 @@ const SITE = {
           },
           {
             title: "Репортажи — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Репортажи — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -253,19 +253,19 @@ const SITE = {
           },
           {
             title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           },
           {
             title: "Сбер-Университет",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
@@ -279,39 +279,45 @@ const SITE = {
         { name: "Репортажная съёмка",   works: [
           {
             title: "Баскетбольный турнир «Легенда улиц 2026»",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/legend.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Legend.mp4",
             description: "Видеосъёмка, монтаж, титры"
           },
           {
-            title: "Репортажная съёмка — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Репортаж о женской хоккейной команде",
+            thumb: "assets/img/works/led.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/led.mp4",
+            description: "Видеосъёмка, монтаж, титры"
           },
           {
             title: "Репортажная съёмка — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Репортажная съёмка — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Мероприятия",          works: [
           {
+            title: "Финал «Ночной хоккейной лиги»",
+            thumb: "assets/img/works/nxl.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/nxl.mp4",
+            description: "Видеосъёмка, монтаж"
+          },
+          {
             title: "Мероприятия — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Мероприятия — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -319,13 +325,13 @@ const SITE = {
         { name: "Корпоративное видео",  works: [
           {
             title: "Корпоративное видео — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -333,19 +339,19 @@ const SITE = {
         { name: "Реклама",              works: [
           {
             title: "Реклама — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Реклама — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Реклама — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -353,13 +359,13 @@ const SITE = {
         { name: "Видеоблоги",           works: [
           {
             title: "Видеоблоги — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Видеоблоги — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -367,13 +373,13 @@ const SITE = {
         { name: "Интервью",             works: [
           {
             title: "Интервью — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Интервью — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -387,13 +393,13 @@ const SITE = {
         { name: "Шейповая анимация и титры",works: [
           {
             title: "Шейповая анимация и титры — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Шейповая анимация и титры — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
@@ -407,27 +413,27 @@ const SITE = {
         { name: "Анимация логотипов",   works: [
           {
             title: "Анимация логотипов — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "Анимация логотипов — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Виртуальные студии",   works: [
           {
-            title: "Виртуальные студии — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Создание 3d студии для телеканала «Мой дом»",
+            thumb: "assets/img/works/3dstud.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/3dstud.mp4",
+            description: "Видеосъёмка, кеинг, моушн-дизайн"
           },
           {
             title: "Виртуальные студии — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -441,7 +447,7 @@ const SITE = {
           },
           {
             title: "3D-интеграции — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -455,19 +461,19 @@ const SITE = {
         { name: "AI-видео",             works: [
           {
             title: "AI-видео — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "AI-видео — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "AI-видео — работа 3",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
@@ -475,13 +481,13 @@ const SITE = {
         { name: "AI-фото",              works: [
           {
             title: "AI-фото — работа 1",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
             title: "AI-фото — работа 2",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
