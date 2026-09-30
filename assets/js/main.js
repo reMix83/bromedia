@@ -205,6 +205,12 @@ function resolveVideo(url) {
 
 function openVideoModal(work, catName) {
   const modal = ensureVideoModal();
+  const box = modal.querySelector('.video-modal-box');
+  if (work && work.isVertical) {
+    box.classList.add('vertical');
+  } else {
+    box.classList.remove('vertical');
+  }
   const frame = document.getElementById("videoModalFrame");
   const info  = modal.querySelector(".video-modal-info");
 
