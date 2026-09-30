@@ -320,13 +320,31 @@ body > .bg-grid {
   transition: transform .35s var(--ease), border-color .35s var(--ease);
 }
 /* вертикальные карточки для коротких видео */
+/* вертикальные карточки для коротких видео */
 .work.vertical {
   aspect-ratio: 9/16;
-}
-.works-viewport .work.vertical {
-  aspect-ratio: 9/16;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
+.works-viewport .work.vertical {
+  aspect-ratio: 9/16;
+  max-width: 50%;
+}
+
+/* текст на вертикальных карточках остается читаемым */
+.work.vertical .work-meta {
+  padding: 12px 10px;
+}
+
+.work.vertical .work-meta h4 {
+  font-size: inherit;
+  line-height: 1.3;
+}
+
+.work.vertical .work-meta p {
+  font-size: inherit;
+}
 /* модальное окно для вертикальных видео */
 .video-modal-box.vertical {
   max-width: 480px;
