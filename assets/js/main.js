@@ -511,6 +511,13 @@ function renderPortfolioPreview() {
       <div class="work-grid" data-featured-grid>${cards}</div>
     </div>`;
 
+  // ДОБАВЛЯЕМ КЛАСС VERTICAL К ВЕРТИКАЛЬНЫМ КАРТОЧКАМ
+  $$('[data-feat-link]').forEach((card, idx) => {
+    if (featured[idx] && featured[idx].work && featured[idx].work.isVertical) {
+      card.closest('article').classList.add('vertical');
+    }
+  });
+
   /* клик по избранной работе → модалка с видео */
   $$("[data-feat-link]", mount).forEach(card => {
     const link = card.dataset.featLink;
@@ -578,6 +585,15 @@ function renderPortfolioPage() {
             </div>`).join("")}
         </section>`).join("")}
     </div>`;
+
+  // добавляем класс vertical к вертикальным карточкам
+  setTimeout(() => {
+    $$('[data-feat-link]', mount).forEach((card, idx) => {
+      if (featured[idx] && featured[idx].work && featured[idx].work.isVertical) {
+        card.closest('article.work').classList.add('vertical');
+      }
+    });
+  }, 0);
 
   /* фильтр направлений + перехода по якорю */
   $$(".filter-btn", mount).forEach(btn => {
