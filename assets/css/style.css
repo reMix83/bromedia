@@ -876,11 +876,23 @@ body > .grid-backdrop {
   .works-viewport .work-grid {
     display: grid;
     grid-auto-flow: column;
+    /* ВАЖНО: гасим grid-template-columns: 1fr из общего правила выше.
+       Иначе первая колонка считается по нему (100vw - 44px - 24px) / 3 = 3px,
+       и когда работ ровно столько же, сколько колонок, вся секция сжимается в 3px
+       и карточки пропадают. Сетку строят только grid-auto-columns. */
+    grid-template-columns: none;
     grid-template-rows: repeat(2, auto);
     grid-auto-columns: calc((100vw - 44px) / 2);   /* 44px = отступы .wrap */
     gap: 12px;
     width: max-content;
     padding: 2px 0 6px;
+  }
+
+  /* ровно две работы — ставим их в один ряд, а не в узкий столбец */
+  .works-viewport .work-grid:has(> .work:nth-child(2):last-child) {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, calc((100vw - 44px) / 2));
+    grid-template-rows: auto;
   }
 
   .works-viewport .work {
