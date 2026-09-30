@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.2";   /* версия сборки — для сброса кэша */
+const BUILD = "5.4";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -158,10 +158,10 @@ const SITE = {
         ] },
         { name: "Корпоративное видео", works: [
           {
-            title: "Корпоративное видео — работа 1",
-            thumb: "assets/img/works/sber.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Корпоративный ролик для Яндекс-такси",
+            thumb: "assets/img/works/yandex.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/yandex.mp4",
+            description: "монтаж и титры"
           },
           {
             title: "Корпоративное видео — работа 2",
@@ -227,7 +227,7 @@ const SITE = {
         { name: "Репортажи",            works: [
           {
             title: "Репортаж для телеканала Москва 360",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/360.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/360%2B.mp4",
             description: "Выездной корреспондент, видеосъёмка, технический монтаж"
           },
