@@ -932,3 +932,24 @@ body > .grid-backdrop {
   .works-nav button:active { transform: scale(.94); }
   .works-nav button:disabled { opacity: .28; cursor: default; }
 }
+
+
+/* вертикальные карточки для коротких видео */
+.work.vertical {
+  aspect-ratio: 9/16;
+}
+
+.works-viewport .work.vertical {
+  aspect-ratio: 9/16;
+}
+
+@media (max-width: 780px) {
+  .work.vertical {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .works-viewport .work.vertical {
+    max-width: 75%;
+  }
+}

@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.9.2";   /* версия сборки — для сброса кэша */
+const BUILD = "6.0";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -167,12 +167,6 @@ const SITE = {
             thumb: "assets/img/works/yandex.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/yandex.mp4",
             description: "монтаж и титры"
-          },
-          {
-            title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/Visit.jpg",
-            link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
-            description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Клиповый монтаж",      works: [
