@@ -1,4 +1,25 @@
-/* ============================================
+//* вертикальный модальный плеер */
+.video-modal-box.vertical {
+  aspect-ratio: 9/16;
+  max-width: 90vh;
+}
+
+.video-modal-box.vertical .video-modal-frame {
+  aspect-ratio: 9/16;
+}
+
+@media (max-width: 768px) {
+  .video-modal-box.vertical {
+    aspect-ratio: 9/16;
+    max-width: 95vw;
+  }
+
+  .video-modal-box.vertical .video-modal-frame {
+    aspect-ratio: 9/16;
+  }
+}
+
+* ============================================
    BRO MEDIA — базовая тема
    Палитра основана на фирменном бирюзовом неоне
    ============================================ */
