@@ -206,14 +206,6 @@ function resolveVideo(url) {
 function openVideoModal(work, catName) {
   const modal = ensureVideoModal();
   const box = modal.querySelector('.video-modal-box');
-
-  // если видео вертикальное - добавляем класс vertical к модалу
-  if (work && work.isVertical) {
-    box.classList.add('vertical');
-  } else {
-    box.classList.remove('vertical');
-  }
-  const box = modal.querySelector('.video-modal-box');
   if (work && work.isVertical) {
     box.classList.add('vertical');
   } else {
