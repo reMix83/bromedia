@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "5.0";   /* версия сборки — для сброса кэша */
+const BUILD = "5.1";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -145,7 +145,7 @@ const SITE = {
         { name: "Реклама",          works: [
           {
             title: "Реклама для соцсетей для бренда Nuovita",
-            thumb: "assets/img/works/sber.jpg",
+            thumb: "assets/img/works/nuovita.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/nuovita.mp4",
             description: "монтаж и титры"
           }
