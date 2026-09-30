@@ -208,25 +208,29 @@ const SITE = {
             title: "Короткий формат — работа 1",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
           },
           {
             title: "Короткий формат — работа 2",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
           },
           {
             title: "Короткий формат — работа 3",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
           },
           {
             title: "Короткий формат — работа 4",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
           }
         ] },
         { name: "Репортажи",            works: [
