@@ -937,25 +937,33 @@ body > .grid-backdrop {
 /* ============================================================
    ВЕРТИКАЛЬНЫЕ КАРТОЧКИ (короткий формат 9:16)
    ВАЖНО: карточки лежат в .work-grid (display:grid).
-   margin:auto в grid отключает stretch -> ширина = 0. Не используем!
+   margin:auto в grid отключает stretch -> ширина становится 0. Не используем!
    ============================================================ */
 .work.vertical {
   aspect-ratio: 9/16;
 }
 
-/* десктоп: 75% ширины ячейки, по центру */
-.work-grid .work.vertical {
-  width: 75%;
-  justify-self: center;
+/* --- ДЕСКТОП (>=781px) -------------------------------------
+   Сетку с вертикальными плитками делаем 4-колоночной.
+   Карточка занимает ячейку целиком -> её левый край совпадает
+   с обычными плитками (без "странной" центровки).          */
+@media (min-width: 781px) {
+  .work-grid:has(.work.vertical) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .work-grid .work.vertical {
+    width: 100%;
+    justify-self: stretch;
+  }
 }
 
-/* мобильная карусель: карточка на всю ячейку (в узкой сетке 75% слишком мелко) */
+/* --- МОБИЛЬНАЯ КАРУСЕЛЬ (<=780px) --------------------------
+   Карточка = 75% ширины ячейки, по центру.
+   width задаём явно: без него grid-item сжимается в 0.       */
 @media (max-width: 780px) {
   .works-viewport .work.vertical {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    justify-self: stretch;
+    width: 75%;
+    justify-self: center;
     aspect-ratio: 9/16;
   }
 }

@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "6.7";   /* версия сборки — для сброса кэша */
+const BUILD = "6.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -221,6 +221,34 @@ const SITE = {
           },
           {
             title: "Короткий формат — работа 4",
+            thumb: "assets/img/works/placeholder.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
+          },
+          {
+            title: "Короткий формат — работа 5",
+            thumb: "assets/img/works/placeholder.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
+          },
+          {
+            title: "Короткий формат — работа 6",
+            thumb: "assets/img/works/placeholder.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
+          },
+          {
+            title: "Короткий формат — работа 7",
+            thumb: "assets/img/works/placeholder.jpg",
+            link: "https://vkvideo.ru/video-197212787_456239020",
+            description: "Заглушка для проверки вёрстки раздела",
+            isVertical: true
+          },
+          {
+            title: "Короткий формат — работа 8",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела",
