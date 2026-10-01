@@ -962,7 +962,7 @@ body > .grid-backdrop {
    width задаём явно: без него grid-item сжимается в 0.       */
 @media (max-width: 780px) {
   .works-viewport .work.vertical {
-    width: 75%;
+    width: 82.5%;
     justify-self: center;
     aspect-ratio: 9/16;
   }
