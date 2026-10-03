@@ -1022,7 +1022,7 @@ body > .grid-backdrop {
   position: relative;
   display: block;
   width: 100%;
-  max-width: 380px;
+  max-width: 480px;
   aspect-ratio: 16/9;
   margin: 0 0 34px;
   border-radius: var(--radius);
@@ -1051,6 +1051,52 @@ body > .grid-backdrop {
   right: 12px;
   width: 36px;
   height: 36px;
+}
+
+/* ============================================================
+   ДВЕ ОБЛОЖКИ ПОРТФОЛИО (шоурил + ИИ-портфолио) в portfolio.html
+   — пропорция под размер картинок (2752×1536), чтобы меньше срезалось
+   — крупная пульсирующая иконка плеера в правом нижнем углу
+   ============================================================ */
+.showreel-grid .work {
+  aspect-ratio: 16/9;
+}
+
+.showreel-grid .play-badge {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  animation: reelRing 2.2s ease-out infinite;
+}
+
+.showreel-grid .play-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.showreel-grid .work:hover .play-badge {
+  transform: scale(1.14);
+}
+
+@keyframes reelRing {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 232, 208, .50); }
+  70%  { box-shadow: 0 0 0 14px rgba(46, 232, 208, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 232, 208, 0); }
+}
+
+@media (max-width: 780px) {
+  .showreel-grid .play-badge {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    height: 46px;
+  }
+  .showreel-grid .play-badge svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .partner-tile .partner-meta {

@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.6";   /* версия сборки — для сброса кэша */
+const BUILD = "7.7";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -349,12 +349,6 @@ const SITE = {
             thumb: "assets/img/works/nxl.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/nxl.mp4",
             description: "Видеосъёмка, монтаж"
-          },
-          {
-            title: "Репортажная съёмка — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
           }
         ],
           note: "Репортажная съёмка наш основной профиль, но коллеги по цеху из MONOLITH7 снимут что угодно: от рекламы - до кино",
