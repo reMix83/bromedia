@@ -582,6 +582,19 @@ function renderPortfolioPage() {
                    </div>`
                 : `<div class="work-grid"><div class="empty-note">Здесь появятся работы — наполняется контентом</div></div>`}
               ${cat.note ? `<p class="dir-note">${esc(cat.note)}</p>` : ""}
+              ${cat.partner ? `
+                <div class="partner-tile reveal" data-partner
+                  data-p-title="${esc(cat.partner.title)}"
+                  data-p-desc="${esc(cat.partner.description || "")}"
+                  data-p-link="${esc(cat.partner.link)}">
+                  <img src="${esc(cat.partner.thumb)}" alt="${esc(cat.partner.title)}"
+                       onerror="this.onerror=null;this.src='assets/img/works/placeholder.jpg';">
+                  <div class="play-badge">${ICONS.play}</div>
+                  <div class="partner-meta">
+                    <span class="p-cat">Партнёры</span>
+                    <span class="p-title">${esc(cat.partner.title)}</span>
+                  </div>
+                </div>` : ""}
             </div>`).join("")}
         </section>`).join("")}
     </div>`;
@@ -629,6 +642,19 @@ function renderPortfolioPage() {
     if (!work || !work.link) return;
 
     card.addEventListener("click", () => openVideoModal(work, catName));
+  });
+
+  /* клик по плашке партнёрского видео → модалка */
+  $$("[data-partner]", mount).forEach(tile => {
+    const link = tile.dataset.pLink;
+    if (!link) return;
+    tile.addEventListener("click", () => {
+      openVideoModal({
+        title: tile.dataset.pTitle,
+        description: tile.dataset.pDesc,
+        link: link,
+      }, "Партнёры");
+    });
   });
 
   initWorksNav(mount);
