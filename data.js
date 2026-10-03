@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.4";   /* версия сборки — для сброса кэша */
+const BUILD = "7.5";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -205,12 +205,6 @@ const SITE = {
             thumb: "assets/img/works/stud.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/studvesna.mp4",
             description: "Монтаж, моушн-дизайн"
-          },
-          {
-            title: "Клиповый монтаж — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Видеоблоги",           works: [
@@ -231,12 +225,6 @@ const SITE = {
             thumb: "assets/img/works/FINEX.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Finex.mp4",
             description: "Видеомонтаж, моушн-дизайн"
-          },
-          {
-            title: "Видеоблоги — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Короткий формат",      works: [
@@ -295,48 +283,6 @@ const SITE = {
             link: "https://storage.yandexcloud.net/bromedia-video/storis.mp4",
             description: "Монтаж, моушн-дизайн",
             isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 3",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 4",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 5",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 6",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 7",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
-          },
-          {
-            title: "Короткий формат — работа 8",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела",
-            isVertical: true
           }
         ] },
         { name: "Репортажи",            works: [
@@ -377,12 +323,6 @@ const SITE = {
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
       ],
@@ -405,100 +345,19 @@ const SITE = {
             description: "Видеосъёмка, монтаж, титры"
           },
           {
-            title: "Репортажная съёмка — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Репортажная съёмка — работа 3",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Мероприятия",          works: [
-          {
             title: "Финал «Ночной хоккейной лиги»",
             thumb: "assets/img/works/nxl.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/nxl.mp4",
             description: "Видеосъёмка, монтаж"
           },
           {
-            title: "Мероприятия — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Мероприятия — работа 3",
+            title: "Репортажная съёмка — работа 2",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
           }
-        ] },
-        { name: "Корпоративное видео",  works: [
-          {
-            title: "Корпоративное видео — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Корпоративное видео — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Реклама",              works: [
-          {
-            title: "Реклама — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Реклама — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Реклама — работа 3",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Видеоблоги",           works: [
-          {
-            title: "Видеоблоги — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Видеоблоги — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
-        { name: "Интервью",             works: [
-          {
-            title: "Интервью — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "Интервью — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          }
-        ] },
+        ],
+          note: "Мы специализируемся на репортажной съёмке, но осуществляем видеосъёмки любой сложности совместно с несколькими продакшенами полного цикла." },
       ],
     },
     {

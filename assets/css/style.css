@@ -1001,3 +1001,25 @@ body > .grid-backdrop {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ============================================================
+   Крупный текст-примечание под разделом портфолио
+   (используется в «Видеосъёмка» → «Репортажная съёмка»)
+   ============================================================ */
+.dir-note {
+  margin: 2px 0 34px;
+  max-width: 900px;
+  font-size: clamp(19px, 2.3vw, 28px);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 780px) {
+  .dir-note {
+    font-size: clamp(17px, 5vw, 22px);
+    margin-bottom: 26px;
+  }
+}

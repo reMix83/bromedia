@@ -581,6 +581,7 @@ function renderPortfolioPage() {
                      </div>
                    </div>`
                 : `<div class="work-grid"><div class="empty-note">Здесь появятся работы — наполняется контентом</div></div>`}
+              ${cat.note ? `<p class="dir-note">${esc(cat.note)}</p>` : ""}
             </div>`).join("")}
         </section>`).join("")}
     </div>`;
