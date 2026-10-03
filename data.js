@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.2";   /* версия сборки — для сброса кэша */
+const BUILD = "7.3";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -159,6 +159,12 @@ const SITE = {
             thumb: "assets/img/works/chenglong.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/chenglong.mp4",
             description: "монтаж и моушн-дизайн"
+          },
+          {
+            title: "Реклама МАП для ТВ Краснодар",
+            thumb: "assets/img/works/mapTV.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/mapTV.mp4",
+            description: "монтаж, моушн-дизайн"
           }
         ] },
         { name: "Корпоративное видео", works: [
@@ -167,6 +173,18 @@ const SITE = {
             thumb: "assets/img/works/yandex.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/yandex.mp4",
             description: "монтаж и титры"
+          },
+          {
+            title: "Корпоративный ролик для Альфа-будущее",
+            thumb: "assets/img/works/alpha.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/alpha.mp4",
+            description: "Видеомонтаж, ИИ-Генерация, Моушн-дизайн"
+          },
+          {
+            title: "Международная выставка AirVent",
+            thumb: "assets/img/works/AirVent.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/AirVent.mp4",
+            description: "Видеомонтаж"
           }
         ] },
         { name: "Клиповый монтаж",      works: [
