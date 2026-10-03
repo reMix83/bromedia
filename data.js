@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.3";   /* версия сборки — для сброса кэша */
+const BUILD = "7.4";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -152,19 +152,19 @@ const SITE = {
             title: "Реклама для соцсетей для бренда Nuovita",
             thumb: "assets/img/works/nuovita.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/nuovita.mp4",
-            description: "монтаж и моушн-дизайн"
+            description: "Монтаж и моушн-дизайн"
           },
           {
             title: "Реклама для соцсетей и ТВ бренда chenglong",
             thumb: "assets/img/works/chenglong.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/chenglong.mp4",
-            description: "монтаж и моушн-дизайн"
+            description: "Монтаж и моушн-дизайн"
           },
           {
             title: "Реклама МАП для ТВ Краснодар",
             thumb: "assets/img/works/mapTV.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/mapTV.mp4",
-            description: "монтаж, моушн-дизайн"
+            description: "Монтаж, моушн-дизайн"
           }
         ] },
         { name: "Корпоративное видео", works: [
@@ -172,7 +172,7 @@ const SITE = {
             title: "Корпоративный ролик для Яндекс-такси",
             thumb: "assets/img/works/yandex.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/yandex.mp4",
-            description: "монтаж и титры"
+            description: "Монтаж и титры"
           },
           {
             title: "Корпоративный ролик для Альфа-будущее",
@@ -192,13 +192,19 @@ const SITE = {
             title: "Ролик отчётник для Донецкой недели моды",
             thumb: "assets/img/works/donmod.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Donmod.mp4",
-            description: "монтаж и титры"
+            description: "Монтаж и титры"
           },
           {
             title: "Анонс к выступлению певца SHAMAN",
             thumb: "assets/img/works/SHAMAN.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/SHAMAN.mp4",
             description: "Видеомонтаж"
+          },
+          {
+            title: "Студенческий фестиваль «Студвесна»",
+            thumb: "assets/img/works/stud.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/studvesna.mp4",
+            description: "Монтаж, моушн-дизайн"
           },
           {
             title: "Клиповый монтаж — работа 2",
@@ -213,6 +219,18 @@ const SITE = {
             thumb: "assets/img/works/vv.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/vv.mp4",
             description: "Монтаж, моушн-дизайн"
+          },
+          {
+            title: "Видеоблог компании Caleo",
+            thumb: "assets/img/works/caleo.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/caleo.mp4",
+            description: "Видеомонтаж, моушн-дизайн"
+          },
+          {
+            title: "Видеоблог компании FinEx",
+            thumb: "assets/img/works/FINEX.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Finex.mp4",
+            description: "Видеомонтаж, моушн-дизайн"
           },
           {
             title: "Видеоблоги — работа 2",
@@ -233,6 +251,48 @@ const SITE = {
             title: "Визитная карточка для агента недвижимости",
             thumb: "assets/img/works/Visit.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Visit.mp4",
+            description: "Монтаж, моушн-дизайн",
+            isVertical: true
+          },
+          {
+            title: "Видеоблог компании Церезит",
+            thumb: "assets/img/works/ceresit.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/ceresit.mp4",
+            description: "Видеомонтаж, ИИ-генерации, моушн-дизайн",
+            isVertical: true
+          },
+          {
+            title: "Рилс для дубайской компании недвижимости",
+            thumb: "assets/img/works/Reels1.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Reels1.mp4",
+            description: "Монтаж, титры",
+            isVertical: true
+          },
+          {
+            title: "Обложка в инстаграм для сообщества GreenFamily",
+            thumb: "assets/img/works/GF.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/GF.mp4",
+            description: "Моушн-дизайн",
+            isVertical: true
+          },
+          {
+            title: "Шортс для компании ZavodShow",
+            thumb: "assets/img/works/krug.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/krug.mp4",
+            description: "Монтаж, моушн-дизайн",
+            isVertical: true
+          },
+          {
+            title: "Шортс об истории часов для канала",
+            thumb: "assets/img/works/chasy.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/chasy.mp4",
+            description: "Монтаж, моушн-дизайн",
+            isVertical: true
+          },
+          {
+            title: "Сторис в инстаграм для бизнескоуча",
+            thumb: "assets/img/works/storis.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/storis.mp4",
             description: "Монтаж, моушн-дизайн",
             isVertical: true
           },
@@ -462,7 +522,7 @@ const SITE = {
             title: "Корпоративное видео компании ИЗЛК",
             thumb: "assets/img/works/izlk_md.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/izlk_MD.mp4",
-            description: "титры по референсу"
+            description: "Титры по референсу"
           }
         ] },
         { name: "Анимация логотипов",   works: [
@@ -518,19 +578,19 @@ const SITE = {
             title: "Реклама на ТВ для МАП",
             thumb: "assets/img/works/mapAI.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/mapAI.mp4",
-            description: "генерация, видеомонтаж, саунд-дизайн"
+            description: "Генерация, видеомонтаж, саунд-дизайн"
           },
           {
             title: "Стори-теллинг ролик",
             thumb: "assets/img/works/ai2.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Ai2.mp4",
-            description: "генерация, видеомонтаж, саунд-дизайн"
+            description: "Генерация, видеомонтаж, саунд-дизайн"
           },
           {
-            title: "перегенерация рекламного ролика Evergoy",
+            title: "Перегенерация рекламного ролика Evergoy",
             thumb: "assets/img/works/Evergoy.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Evergoy.mp4",
-            description: "генерация, видеомонтаж, саунд-дизайн"
+            description: "Генерация, видеомонтаж, саунд-дизайн"
           },
           {
             title: "AI-видео — работа 1",

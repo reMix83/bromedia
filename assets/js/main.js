@@ -549,7 +549,6 @@ function renderPortfolioPage() {
           <div class="dir-title reveal">
             <span class="dot"></span>
             <h3>${esc(dir.title)}</h3>
-            <span class="count">${dir.categories.length} раздела</span>
           </div>
           ${dir.categories.map(cat => `
             <div style="margin-bottom:34px;">
