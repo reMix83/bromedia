@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=6.9">
+<link rel="stylesheet" href="assets/css/style.css?v=7.0">
 </head>
 <body>
 
@@ -37,6 +37,22 @@
     <p style="color:var(--text-dim);font-size:18px;max-width:620px;margin-top:16px;">
       Четыре направления — монтаж, съёмка, моушн-дизайн и ИИ-генерации. Выбери категорию.
     </p>
+  </div>
+</section>
+
+<!-- ШОУРИЛ + ИИ-ПОРТФОЛИО (две горизонтальные плитки) -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="work-grid showreel-grid">
+      <article class="work reveal" data-showreel="showreal" style="cursor:pointer;">
+        <div class="work-thumb">Шоурил</div>
+        <div class="play-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 21 12 6 21 6 3"/></svg></div>
+      </article>
+      <article class="work reveal" data-showreel="ai" style="cursor:pointer;transition-delay:80ms;">
+        <div class="work-thumb">ИИ-портфолио</div>
+        <div class="play-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 21 12 6 21 6 3"/></svg></div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -54,7 +70,33 @@
 
 <footer data-footer></footer>
 
-<script src="data.js?v=6.9"></script>
-<script src="assets/js/main.js?v=6.9"></script>
+<script src="data.js?v=7.0"></script>
+<script src="assets/js/main.js?v=7.0"></script>
+
+<script>
+/* Плитки шоурила: открываем те же модалки, что и карточки портфолио */
+(function () {
+  var REEL = {
+    showreal: {
+      title: "Шоурил BRO MEDIA",
+      description: "Сборник лучших работ студии",
+      link: "https://storage.yandexcloud.net/bromedia-video/Showreal_bromedia.mp4",
+      cat: "Шоурил"
+    },
+    ai: {
+      title: "Портфолио ИИ-генераций",
+      description: "ИИ-видео и генерации",
+      link: "https://storage.yandexcloud.net/bromedia-video/portfolioAI.mp4",
+      cat: "ИИ-генерации"
+    }
+  };
+  document.querySelectorAll("[data-showreel]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var d = REEL[el.getAttribute("data-showreel")];
+      if (d && typeof openVideoModal === "function") openVideoModal(d, d.cat);
+    });
+  });
+})();
+</script>
 </body>
 </html>

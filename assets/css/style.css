@@ -987,3 +987,17 @@ body > .grid-backdrop {
 @media (max-width: 780px) {
   .video-modal-box.vertical { max-width: 94vw; }
 }
+
+
+/* ============================================================
+   ПЛИТКИ ШОУРИЛА (portfolio.html) — 2 горизонтальные, 16:10
+   ============================================================ */
+.showreel-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 780px) {
+  .showreel-grid {
+    grid-template-columns: 1fr;
+  }
+}
