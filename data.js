@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.1";   /* версия сборки — для сброса кэша */
+const BUILD = "7.2";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -175,6 +175,12 @@ const SITE = {
             thumb: "assets/img/works/donmod.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Donmod.mp4",
             description: "монтаж и титры"
+          },
+          {
+            title: "Анонс к выступлению певца SHAMAN",
+            thumb: "assets/img/works/SHAMAN.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/SHAMAN.mp4",
+            description: "Видеомонтаж"
           },
           {
             title: "Клиповый монтаж — работа 2",
@@ -490,6 +496,24 @@ const SITE = {
       title: "ИИ-генерации",
       categories: [
         { name: "AI-видео",             works: [
+          {
+            title: "Реклама на ТВ для МАП",
+            thumb: "assets/img/works/mapAI.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/mapAI.mp4",
+            description: "генерация, видеомонтаж, саунд-дизайн"
+          },
+          {
+            title: "Стори-теллинг ролик",
+            thumb: "assets/img/works/ai2.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Ai2.mp4",
+            description: "генерация, видеомонтаж, саунд-дизайн"
+          },
+          {
+            title: "перегенерация рекламного ролика Evergoy",
+            thumb: "assets/img/works/Evergoy.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Evergoy.mp4",
+            description: "генерация, видеомонтаж, саунд-дизайн"
+          },
           {
             title: "AI-видео — работа 1",
             thumb: "assets/img/works/placeholder.jpg",
