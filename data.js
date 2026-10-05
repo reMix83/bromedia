@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.7";   /* версия сборки — для сброса кэша */
+const BUILD = "7.8";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -313,6 +313,18 @@ const SITE = {
             description: "Ролик для Сбер-Университета: монтаж, инфографика, саунд-дизайн. 60 секунд."
           },
           {
+            title: "Видео курс для Московской академии предпринимательства",
+            thumb: "assets/img/works/mapkurs.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/mapkurs.mp4",
+            description: "Видеомонтаж, моушн-дизайн"
+          },
+          {
+            title: "Курс для университета Синергия",
+            thumb: "assets/img/works/kursii.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/kursii.mp4",
+            description: "Видеомонтаж, моушн-дизайн"
+          },
+          {
             title: "Сбер-Университет",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
@@ -418,6 +430,12 @@ const SITE = {
             thumb: "assets/img/works/SU27.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/SU27.mp4",
             description: "Моушн-дизайн с интеграцией 3d модели"
+          },
+          {
+            title: "Видеоблог курорта Газпром",
+            thumb: "assets/img/works/mult.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/Multpolana.mp4",
+            description: "Моушн-дизайн и интеграция 3d-моделей"
           },
           {
             title: "3D-интеграции — работа 2",
