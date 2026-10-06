@@ -858,26 +858,41 @@ document.addEventListener("click", (e) => {
   if (!a) return;
   const href = a.getAttribute("href") || "";
 
-  /* контакты: почта и Telegram — самые горячие обращения */
+  /* почта — самое горячее обращение */
   if (href.startsWith("mailto:")) { reachGoal("contact_email"); return; }
-  if (/^https?:\/\/(t\.me|telegram\.me)\//i.test(href)) { reachGoal("contact_telegram"); return; }
+
+  /* Карточка на странице «Контакты» — это личное обращение, а не подписка
+     на канал. Проверяем по классу, а не по тексту ссылки: так различаются
+     t.me/reMix83 в контактах и t.me/bromediaPRO среди каналов. */
+  if (a.closest(".contact-row")) { reachGoal("contact_telegram"); return; }
+
+  /* переходы по разделам сайта */
   if (href === "contacts.html" || href.endsWith("/contacts.html")) { reachGoal("contact_page"); return; }
   if (href === "portfolio.html" || href.endsWith("/portfolio.html")) { reachGoal("portfolio_open"); return; }
 
-  /* соцсети и видеоплощадки */
-  const soc = [
-    [/(^|\.)t\.me\//i,                        "social_telegram"],
-    [/(^|\.)max\.ru\//i,                      "social_max"],
-    [/(^|\.)youtube\.com\//i,                 "social_youtube"],
-    [/(^|\.)vk(video)?\.(ru|com)\//i,         "social_vk"],
-    [/(^|\.)rutube\.ru\//i,                   "social_rutube"],
-    [/(^|\.)dzen\.ru\//i,                     "social_dzen"],
-  ];
-  for (const [re, goal] of soc) {
-    if (re.test(href)) { reachGoal(goal); return; }
+  /* Блок «Наши каналы» / «Мы в соцсетях» — здесь ссылка означает интерес
+     к контенту, поэтому цели отдельные, по каждой площадке. */
+  if (a.closest(".social-link")) {
+    /* Разбираем адрес на части и смотрим имя хоста.
+       Сравнивать строку целиком нельзя: «https://t.me/…» не содержит
+       точку перед доменом, и проверка вида (^|\.)t\.me не сработает. */
+    let host = "";
+    try { host = new URL(href, location.href).hostname.replace(/^www\./, ""); } catch (err) { host = ""; }
+
+    const soc = [
+      [/(^|\.)t\.me$/,                        "social_telegram"],
+      [/(^|\.)max\.ru$/,                      "social_max"],
+      [/(^|\.)(youtube\.com|youtu\.be)$/,    "social_youtube"],
+      [/(^|\.)(vk\.ru|vk\.com|vkvideo\.ru)$/,"social_vk"],
+      [/(^|\.)rutube\.ru$/,                   "social_rutube"],
+      [/(^|\.)dzen\.ru$/,                     "social_dzen"],
+    ];
+    for (const [re, goal] of soc) {
+      if (re.test(host)) { reachGoal(goal); return; }
+    }
   }
 
-  /* внешние ссылки в целом */
+  /* прочие внешние ссылки */
   if (/^https?:\/\//i.test(href) && !href.includes(location.hostname)) {
     reachGoal("outbound_click", { url: href.slice(0, 200) });
   }
