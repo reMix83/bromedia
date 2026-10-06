@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.8";   /* версия сборки — для сброса кэша */
+const BUILD = "7.9";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -299,6 +299,12 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
+            title: "Конкурс журналистских работ",
+            thumb: "assets/img/works/meropr1.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/meropr1.mp4",
+            description: "Видеомонтаж"
+          },
+          {
             title: "Репортажи — работа 3",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
@@ -323,18 +329,6 @@ const SITE = {
             thumb: "assets/img/works/kursii.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/kursii.mp4",
             description: "Видеомонтаж, моушн-дизайн"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
-          },
-          {
-            title: "Сбер-Университет",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Наша работа для Сбер-Университет (монтаж и инфографика)"
           }
         ] },
       ],
@@ -438,10 +432,10 @@ const SITE = {
             description: "Моушн-дизайн и интеграция 3d-моделей"
           },
           {
-            title: "3D-интеграции — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Промышленное моделирование для компании ЭТЕК",
+            thumb: "assets/img/works/etek.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/etek.mp4",
+            description: "3d-моделирование, моушн-дизайн"
           }
         ] },
       ],
@@ -468,6 +462,12 @@ const SITE = {
             thumb: "assets/img/works/Evergoy.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/Evergoy.mp4",
             description: "Генерация, видеомонтаж, саунд-дизайн"
+          },
+          {
+            title: "Презентация компании ASNA",
+            thumb: "assets/img/works/asnaii.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/asnaii.mp4",
+            description: "Инфографика в ИИ"
           },
           {
             title: "AI-видео — работа 1",
