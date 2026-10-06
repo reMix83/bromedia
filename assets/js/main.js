@@ -30,6 +30,18 @@ function esc(str) {
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
 }
 
+/* ---------- Яндекс.Метрика: цели ----------
+   Счётчик один на весь сайт. reachGoal безопасно молчит,
+   если Метрика не загрузилась (блокировщик, офлайн, медленная сеть). */
+function reachGoal(name, params) {
+  try {
+    /* номер счётчика задан в HTML (window.YM_ID) — одно место на весь сайт */
+    if (typeof window.ym === "function" && window.YM_ID) {
+      window.ym(window.YM_ID, "reachGoal", name, params || {});
+    }
+  } catch (e) { /* аналитика не должна ломать сайт */ }
+}
+
 /* ---------- хедер и футер (вставляются на каждую страницу) ---------- */
 const NAV_ITEMS = [
   { href: "index.html",     label: "Главная" },
@@ -204,6 +216,12 @@ function resolveVideo(url) {
 }
 
 function openVideoModal(work, catName) {
+  /* цель: посетитель открыл видео — главный сигнал интереса к портфолио */
+  reachGoal("video_open", {
+    title: (work && work.title) || "",
+    section: catName || ""
+  });
+
   const modal = ensureVideoModal();
   const box = modal.querySelector('.video-modal-box');
   if (work && work.isVertical) {
@@ -831,6 +849,39 @@ function initGridBackdrop() {
   d.setAttribute("aria-hidden", "true");
   document.body.insertBefore(d, document.body.firstChild);
 }
+
+/* ---------- цели на клики по ссылкам ----------
+   Делегирование на document: ловит и ссылки, отрисованные из data.js,
+   и те, что появятся позже. Ничего не нужно вешать на каждую вручную. */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+  const href = a.getAttribute("href") || "";
+
+  /* контакты: почта и Telegram — самые горячие обращения */
+  if (href.startsWith("mailto:")) { reachGoal("contact_email"); return; }
+  if (/^https?:\/\/(t\.me|telegram\.me)\//i.test(href)) { reachGoal("contact_telegram"); return; }
+  if (href === "contacts.html" || href.endsWith("/contacts.html")) { reachGoal("contact_page"); return; }
+  if (href === "portfolio.html" || href.endsWith("/portfolio.html")) { reachGoal("portfolio_open"); return; }
+
+  /* соцсети и видеоплощадки */
+  const soc = [
+    [/(^|\.)t\.me\//i,                        "social_telegram"],
+    [/(^|\.)max\.ru\//i,                      "social_max"],
+    [/(^|\.)youtube\.com\//i,                 "social_youtube"],
+    [/(^|\.)vk(video)?\.(ru|com)\//i,         "social_vk"],
+    [/(^|\.)rutube\.ru\//i,                   "social_rutube"],
+    [/(^|\.)dzen\.ru\//i,                     "social_dzen"],
+  ];
+  for (const [re, goal] of soc) {
+    if (re.test(href)) { reachGoal(goal); return; }
+  }
+
+  /* внешние ссылки в целом */
+  if (/^https?:\/\//i.test(href) && !href.includes(location.hostname)) {
+    reachGoal("outbound_click", { url: href.slice(0, 200) });
+  }
+}, true);
 
 /* ---------- запуск ---------- */
 document.addEventListener("DOMContentLoaded", () => {
