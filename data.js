@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "8.4";   /* версия сборки — для сброса кэша */
+const BUILD = "8.6";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -504,49 +504,55 @@ const SITE = {
           {
             title: "Предметная съёмка для маркетплейсов",
             description: "Генерация предметов на белом фоне и в среде",
-            thumb: "assets/img/works/1.png",
+            thumb: "assets/img/works/1.jpg",
             photo: true
           },
           {
             title: "Fashion-съёмка и лукбуки",
             description: "Генерация моделей и образов без съёмки",
-            thumb: "assets/img/works/2.png",
+            thumb: "assets/img/works/2.jpg",
             photo: true
           },
           {
             title: "Портреты и аватары для брендов",
             description: "Генерация лиц и портретов под задачу бренда",
-            thumb: "assets/img/works/3.png",
+            thumb: "assets/img/works/3.jpg",
             photo: true
           },
           {
             title: "Интерьеры и композитинг",
             description: "Генерация интерьеров и расстановки объектов",
+            thumb: "assets/img/works/4.jpg",
             photo: true
           },
           {
             title: "Food-съёмка и фудстайлинг",
             description: "Генерация блюд и подачи для меню",
+            thumb: "assets/img/works/5.jpg",
             photo: true
           },
           {
             title: "Реставрация архивных фото",
             description: "Восстановление и повышение детализации старых кадров",
+            thumb: "assets/img/works/6.jpg",
             photo: true
           },
           {
             title: "Каталожная съёмка для e-commerce",
-            description: "Серийная генерация карточек товара",
+            description: "Построение моделей для генерации\nЗамена лиц в сюжете",
+            thumb: "assets/img/works/7.jpg",
             photo: true
           },
           {
             title: "Постеры и обложки",
             description: "Генерация постеров и обложек под релиз",
+            thumb: "assets/img/works/8.jpg",
             photo: true
           },
           {
             title: "Замена фона и окружения",
             description: "Замена фона и построение нового окружения",
+            thumb: "assets/img/works/9.jpg",
             photo: true
           }
         ] },
