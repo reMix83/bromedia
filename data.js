@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "8.2";   /* версия сборки — для сброса кэша */
+const BUILD = "8.3";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -386,16 +386,40 @@ const SITE = {
         ] },
         { name: "Анимация логотипов",   works: [
           {
-            title: "Анимация логотипов — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Интро компании DAVINILAB",
+            thumb: "assets/img/works/dll.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/lablogo.mp4",
+            description: "Моушн-дизайн"
           },
           {
             title: "Создание интро для блога X-Cinema",
             thumb: "assets/img/works/X-CINEMA.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/X-CINEMA.mp4",
             description: "Моушн-дизайн"
+          },
+          {
+            title: "Интро для Ночной хоккейной лиги",
+            thumb: "assets/img/works/nxlscr.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/nxllogo.mp4",
+            description: "Моушн-дизайн"
+          },
+          {
+            title: "Интро для питомника растений Fixgarden",
+            thumb: "assets/img/works/fgl.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/fixlogo.mp4",
+            description: "Шаблонная анимация"
+          },
+          {
+            title: "Интро компании Нархозстрой",
+            thumb: "assets/img/works/nxzl.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/nxs.mp4",
+            description: "Шаблонная анимация"
+          },
+          {
+            title: "Интро компании Premama",
+            thumb: "assets/img/works/premama.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/premama.mp4",
+            description: "Анимация логотипа шейпами"
           }
         ] },
         { name: "Виртуальные студии",   works: [
@@ -406,10 +430,10 @@ const SITE = {
             description: "Видеосъёмка, кеинг, моушн-дизайн"
           },
           {
-            title: "Виртуальные студии — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Виртуальная 3d-студия для телеканала «Мой дом»",
+            thumb: "assets/img/works/virt2.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/virt2.mp4",
+            description: "Полное графическое сопровождение телеканала"
           }
         ] },
         { name: "3D-интеграции",        works: [
