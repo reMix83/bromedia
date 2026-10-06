@@ -504,16 +504,19 @@ const SITE = {
           {
             title: "Предметная съёмка для маркетплейсов",
             description: "Генерация предметов на белом фоне и в среде",
+            thumb: "assets/img/works/1.png",
             photo: true
           },
           {
             title: "Fashion-съёмка и лукбуки",
             description: "Генерация моделей и образов без съёмки",
+            thumb: "assets/img/works/2.png",
             photo: true
           },
           {
             title: "Портреты и аватары для брендов",
             description: "Генерация лиц и портретов под задачу бренда",
+            thumb: "assets/img/works/3.png",
             photo: true
           },
           {
