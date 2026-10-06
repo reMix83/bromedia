@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "8.6";   /* версия сборки — для сброса кэша */
+const BUILD = "8.7";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -386,7 +386,7 @@ const SITE = {
         ] },
         { name: "Анимация логотипов",   works: [
           {
-            title: "Интро компании DAVINILAB",
+            title: "Интро компании DAVINCILAB",
             thumb: "assets/img/works/dll.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/lablogo.mp4",
             description: "Моушн-дизайн"
