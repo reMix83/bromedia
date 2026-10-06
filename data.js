@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "7.9";   /* версия сборки — для сброса кэша */
+const BUILD = "8.0";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -293,22 +293,16 @@ const SITE = {
             description: "Выездной корреспондент, видеосъёмка, технический монтаж"
           },
           {
-            title: "Репортажи — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Клиповая репортажная съёмка чемпионата по вольной борьбе",
+            thumb: "assets/img/works/volniki.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/volniki.mp4",
+            description: "Видеосъёмка, видеомонтаж"
           },
           {
             title: "Конкурс журналистских работ",
             thumb: "assets/img/works/meropr1.jpg",
             link: "https://storage.yandexcloud.net/bromedia-video/meropr1.mp4",
             description: "Видеомонтаж"
-          },
-          {
-            title: "Репортажи — работа 3",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
           }
         ] },
         { name: "Видеокурсы",         works: [
@@ -398,10 +392,10 @@ const SITE = {
             description: "Заглушка для проверки вёрстки раздела"
           },
           {
-            title: "Анимация логотипов — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Создание интро для блога X-Cinema",
+            thumb: "assets/img/works/X-CINEMA.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/X-CINEMA.mp4",
+            description: "Моушн-дизайн"
           }
         ] },
         { name: "Виртуальные студии",   works: [
@@ -470,19 +464,13 @@ const SITE = {
             description: "Инфографика в ИИ"
           },
           {
-            title: "AI-видео — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Промо для Феерии вкуса",
+            thumb: "assets/img/works/feeria.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/feeria.mp4",
+            description: "ИИ-генерации"
           },
           {
             title: "AI-видео — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
-          },
-          {
-            title: "AI-видео — работа 3",
             thumb: "assets/img/works/placeholder.jpg",
             link: "https://vkvideo.ru/video-197212787_456239020",
             description: "Заглушка для проверки вёрстки раздела"
