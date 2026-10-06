@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "8.0";   /* версия сборки — для сброса кэша */
+const BUILD = "8.2";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -366,22 +366,22 @@ const SITE = {
       categories: [
         { name: "Шейповая анимация и титры",works: [
           {
-            title: "Шейповая анимация и титры — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Видеоинструкция для курса по криптоторговле",
+            thumb: "assets/img/works/instr.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/instr.mp4",
+            description: "Шейповая анимация"
           },
           {
-            title: "Шейповая анимация и титры — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Промо для кинофестиваля «Свидание с Россией»",
+            thumb: "assets/img/works/svid.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/svid.mp4",
+            description: "Моушн-дизайн"
           },
           {
-            title: "Корпоративное видео компании ИЗЛК",
-            thumb: "assets/img/works/izlk_md.jpg",
-            link: "https://storage.yandexcloud.net/bromedia-video/izlk_MD.mp4",
-            description: "Титры по референсу"
+            title: "Промо для Президентской программы подготовки управленческих кадров",
+            thumb: "assets/img/works/25let.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/25let.mp4",
+            description: "Кинетические титры, анимация лого"
           }
         ] },
         { name: "Анимация логотипов",   works: [
