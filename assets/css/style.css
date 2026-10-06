@@ -1133,3 +1133,84 @@ body > .grid-backdrop {
 }
 
 /* конец блока .dir-note / .partner-tile */
+
+/* ============================================================
+   ГАЛЕРЕЯ AI-ФОТО — 9 плиток с подписями видов генерации
+   (без иконки плеера: у этих работ нет link)
+   ============================================================ */
+
+/* фото-плитка: своя пропорция под изображение */
+.work.photo {
+  aspect-ratio: 4/5;
+  cursor: default;
+}
+
+.work.photo:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon-dim);
+}
+
+/* залитая картинка вместо заглушки */
+.work.photo .work-thumb {
+  background: linear-gradient(140deg, #102424, #0b1a1a);
+}
+
+/* подпись: мягкая плашка снизу */
+.work.photo .work-meta {
+  padding: 20px 18px 18px;
+  background: linear-gradient(0deg, rgba(10,20,20,.97) 32%, rgba(10,20,20,.55) 68%, transparent);
+}
+
+.work.photo .work-meta .cat {
+  font-size: 10px;
+  letter-spacing: .18em;
+  opacity: .85;
+}
+
+.work.photo .work-meta h4 {
+  font-size: 15px;
+  line-height: 1.3;
+  margin-top: 5px;
+}
+
+.work.photo .work-meta p {
+  margin-top: 7px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--text-mute);
+}
+
+/* сетка галереи: ровно 3 колонки на десктопе */
+.work-grid:has(> .work.photo) {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 1024px) {
+  .work-grid:has(> .work.photo) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  /* на мобиле фото-плитки — сеткой 2 в ряд, без горизонтальной прокрутки */
+  .works-viewport:has(.work.photo) {
+    overflow-x: visible;
+  }
+  .works-viewport .work-grid:has(> .work.photo) {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-auto-columns: auto;
+    width: auto;
+    gap: 12px;
+  }
+  .works-viewport .work.photo {
+    aspect-ratio: 3/4;
+    scroll-snap-align: none;
+  }
+  .works-viewport .work.photo .work-meta { padding: 12px 11px 11px; }
+  .works-viewport .work.photo .work-meta h4 { font-size: 12.5px; }
+  .works-viewport .work.photo .work-meta p { display: block; font-size: 11px; }
+}

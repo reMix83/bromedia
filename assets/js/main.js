@@ -559,10 +559,10 @@ function renderPortfolioPage() {
                 ? `<div class="works-viewport">
                      <div class="work-grid" data-works-track>
                        ${cat.works.map(w => `
-                         <article class="work reveal" data-work="${esc(w.title)}" data-cat="${esc(cat.name)}" ${w.link ? 'style="cursor:pointer;"' : ""}>
+                         <article class="work reveal${w.photo ? ' photo' : ''}${w.isVertical ? ' vertical' : ''}" data-work="${esc(w.title)}" data-cat="${esc(cat.name)}" ${w.link ? 'style="cursor:pointer;"' : ""}>
                            ${w.thumb
                              ? `<img src="${esc(w.thumb)}" alt="${esc(w.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
-                             : `<div class="work-thumb">Скоро</div>`}
+                             : `<div class="work-thumb">${w.photo ? "" : "Скоро"}</div>`}
                            ${w.link ? `<div class="play-badge">${ICONS.play}</div>` : ""}
                            <div class="work-meta">
                              <div class="cat">${esc(cat.name)}</div>
@@ -639,7 +639,7 @@ function renderPortfolioPage() {
     const title = card.dataset.work;
     const catName = card.dataset.cat;
     const work = allWorks.find(w => w.title === title && w._cat === catName);
-    if (!work || !work.link) return;
+    if (!work || !work.link || work.photo) return;
 
     card.addEventListener("click", () => openVideoModal(work, catName));
   });

@@ -4,7 +4,7 @@
    Меняешь значение в кавычках — сайт обновляется.
    ============================================================ */
 
-const BUILD = "8.3";   /* версия сборки — для сброса кэша */
+const BUILD = "8.4";   /* версия сборки — для сброса кэша */
 
 const SITE = {
 
@@ -494,24 +494,57 @@ const SITE = {
             description: "ИИ-генерации"
           },
           {
-            title: "AI-видео — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "ИИ-генерации",
+            thumb: "assets/img/works/workii.jpg",
+            link: "https://storage.yandexcloud.net/bromedia-video/IIwork.mp4",
+            description: "Захват движения, липсинг, построение сцен"
           }
         ] },
         { name: "AI-фото",              works: [
           {
-            title: "AI-фото — работа 1",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Предметная съёмка для маркетплейсов",
+            description: "Генерация предметов на белом фоне и в среде",
+            photo: true
           },
           {
-            title: "AI-фото — работа 2",
-            thumb: "assets/img/works/placeholder.jpg",
-            link: "https://vkvideo.ru/video-197212787_456239020",
-            description: "Заглушка для проверки вёрстки раздела"
+            title: "Fashion-съёмка и лукбуки",
+            description: "Генерация моделей и образов без съёмки",
+            photo: true
+          },
+          {
+            title: "Портреты и аватары для брендов",
+            description: "Генерация лиц и портретов под задачу бренда",
+            photo: true
+          },
+          {
+            title: "Интерьеры и композитинг",
+            description: "Генерация интерьеров и расстановки объектов",
+            photo: true
+          },
+          {
+            title: "Food-съёмка и фудстайлинг",
+            description: "Генерация блюд и подачи для меню",
+            photo: true
+          },
+          {
+            title: "Реставрация архивных фото",
+            description: "Восстановление и повышение детализации старых кадров",
+            photo: true
+          },
+          {
+            title: "Каталожная съёмка для e-commerce",
+            description: "Серийная генерация карточек товара",
+            photo: true
+          },
+          {
+            title: "Постеры и обложки",
+            description: "Генерация постеров и обложек под релиз",
+            photo: true
+          },
+          {
+            title: "Замена фона и окружения",
+            description: "Замена фона и построение нового окружения",
+            photo: true
           }
         ] },
       ],
