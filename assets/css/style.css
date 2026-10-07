@@ -1215,3 +1215,23 @@ body > .grid-backdrop {
   .works-viewport .work.photo .work-meta h4 { font-size: 12.5px; }
   .works-viewport .work.photo .work-meta p { display: block; font-size: 11px; }
 }
+
+
+/* ---------- МОБИЛЬНАЯ ШАПКА: видео меньше и по центру ----------
+   Кадр видео широкий (16:9), а экран телефона узкий и высокий.
+   При обычном «на весь экран» с object-fit:cover картинка сильно
+   увеличивается и обрезается по бокам — в кадре видна только середина,
+   поэтому сцена кажется слишком крупной.
+   Уменьшаем видео до 75% и ставим по центру экрана. */
+@media (max-width: 780px) {
+  .hero-video {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    border-radius: 14px;
+  }
+}
